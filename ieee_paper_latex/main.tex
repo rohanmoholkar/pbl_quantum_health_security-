@@ -42,6 +42,13 @@ Quantum Cryptography, Digital Health, Blockchain, PQC, QKD, Healthcare
 \section{Introduction}
 This paper outlines the architecture for a Quantum-Secured Digital Health Identity System. We present the integration of Quantum Key Distribution (QKD), Post-Quantum Cryptography (PQC), and AI-driven anomaly detection to secure electronic health records against both classical and quantum threats.
 
+\section{Related Work}
+The integration of advanced cryptographic and intelligence models in healthcare has garnered significant academic interest. Recent comprehensive surveys have evaluated the role of Blockchain in Electronic Health Records (EHRs), noting its capacity to provide decentralized trust and data integrity \cite{blockchain_ehr_survey_2022}. However, these classical blockchain models remain highly vulnerable to future quantum computing attacks (e.g., Shor's Algorithm). 
+
+To address quantum threats, researchers have explored Quantum Key Distribution (QKD) within the Internet of Medical Things (IoMT) to achieve information-theoretic security \cite{qkd_health_survey_2023}. Concurrently, Post-Quantum Cryptography (PQC) has been proposed to secure resource-constrained medical devices in zero-trust architectures \cite{pqc_iot_health_2024}. 
+
+Despite these advancements, a critical research gap exists: existing systems often treat cryptography and network intelligence as isolated domains. While studies have demonstrated the efficacy of Machine Learning (particularly Random Forest algorithms) in detecting real-time intrusions in healthcare networks \cite{ai_ids_healthcare_2023}, there is a lack of unified frameworks combining these defenses. Our proposed architecture bridges this gap by unifying QKD, PQC, and Deep Learning/Ensemble ML into a cohesive, multi-layered healthcare security model.
+
 \section{Mathematical Modeling}
 \subsection{Quantum Key Distribution (QKD) Modeling}
 To establish secure communication links between medical facilities, we model a standard BB84 protocol over fiber optic channels. The security and performance are dictated by the Gottesman-Lo-L\"{u}tkenhaus-Preskill (GLLP) equation \cite{gllp2004}. The Secure Key Rate (SKR) $R$ is expressed as a function of the error rate $e$ and transmittance $T$:
@@ -89,6 +96,33 @@ Both the Random Forest and MLP Neural Network architectures achieved exceptional
 \caption{Comparative ROC Curve: Deep Learning vs Ensemble.}
 \label{fig:ai_roc_comp}
 \end{figure}
+
+\section{Security Analysis (STRIDE Model)}
+To formally evaluate the resilience of our proposed architecture against advanced cyber threats, we utilize the Microsoft STRIDE threat modeling framework. Table \ref{tab:stride} details how our multi-layered approach consisting of QKD, PQC, Blockchain, and AI neutralizes specific attack vectors targeting healthcare infrastructure.
+
+\begin{table}[htbp]
+\caption{STRIDE Threat Matrix for Quantum-Secured Health System}
+\begin{center}
+\begin{tabular}{|p{1.5cm}|p{3cm}|p{3.2cm}|}
+\hline
+\textbf{Threat} & \textbf{Vulnerability Context} & \textbf{Architectural Mitigation} \\
+\hline
+\textbf{S}poofing & Unauthorized access to patient EHR portals. & Authenticated via biometric Aadhaar and PQC digital signatures. \\
+\hline
+\textbf{T}ampering & Altering medical records or prescriptions. & Immutable Blockchain ledger ensures cryptographic data integrity. \\
+\hline
+\textbf{R}epudiation & Doctors denying issuing a specific diagnosis. & Smart contract transaction logs provide non-repudiable audit trails. \\
+\hline
+\textbf{I}nformation Disclosure & Quantum adversaries intercepting data in transit. & QKD (BB84 protocol) guarantees information-theoretic secrecy on fiber links. \\
+\hline
+\textbf{D}enial of Service & Network flooding targeting hospital APIs. & AI Intrusion Detection (Random Forest/MLP) instantly flags malicious traffic. \\
+\hline
+\textbf{E}levation of Privilege & Hackers escalating access to admin levels. & Zero-Trust Architecture and Smart Contract Role-Based Access Control (RBAC). \\
+\hline
+\end{tabular}
+\label{tab:stride}
+\end{center}
+\end{table}
 
 \section{Conclusion}
 The proposed architecture provides a robust, quantum-resistant framework for digital health identities. Future work will detail the blockchain integration and the exact consensus mechanisms for off-chain health data.
