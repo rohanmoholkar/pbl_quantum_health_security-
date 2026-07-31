@@ -4,6 +4,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import os
 import time
+import joblib
 
 from sklearn.datasets import fetch_kddcup99
 from sklearn.model_selection import train_test_split, learning_curve
@@ -130,4 +131,14 @@ plt.tight_layout()
 plt.savefig(os.path.join(fig_dir, 'ai_learning_curve.png'), dpi=300)
 plt.close()
 
-print(f"\nSUCCESS: Advanced ML plots saved to {fig_dir}")
+# 3. Model Persistence (Save for Interactive Demo)
+print("\n--- Saving AI Model for Interactive Demo ---")
+model_dir = 'models'
+os.makedirs(model_dir, exist_ok=True)
+
+rf_model = models['Random Forest (Ensemble)']
+joblib.dump(rf_model, os.path.join(model_dir, 'rf_intrusion_model.pkl'))
+joblib.dump(scaler, os.path.join(model_dir, 'scaler.pkl'))
+
+print(f"SUCCESS: Models saved to {model_dir}/")
+print(f"SUCCESS: Advanced ML plots saved to {fig_dir}/")
