@@ -7,8 +7,8 @@ This repository contains the simulation models and academic drafts for the PBL-3
 These modules model different aspects of the quantum-secured health system:
 
 1. **QKD Feasibility & Network Planning** (`simulations/qkd_model.py`) - Quantum Layer
-2. **AI Intrusion Detection Engine** (`simulations/ai_intrusion_detection.py`) - Intelligence Layer  
-   - Implements a Random Forest Classifier trained on the empirical KDD Cup 1999 dataset to detect real-world network threats.
+2. **AI Intrusion Detection Engine** (`simulations/advanced_ai_intrusion_detection.py`) - Intelligence Layer  
+   - Implements a Comparative Study of Ensemble Learning (Random Forest) vs Deep Learning (MLP Neural Network) trained on the empirical KDD Cup 1999 dataset (494k samples).
 3. **Post-Quantum Cryptography Comparison** (`simulations/pqc_compare.py`) - Cryptographic Analysis
 
 ## Installation
@@ -36,7 +36,7 @@ python simulations/qkd_model.py
 Trains an Isolation Forest to detect cyberattacks in hospital network traffic:
 
 ```bash
-python simulations/ai_intrusion_detection.py
+python simulations/advanced_ai_intrusion_detection.py
 ```
 
 **Output**: Scatter plot with blue points (normal traffic) and red points (detected attacks).

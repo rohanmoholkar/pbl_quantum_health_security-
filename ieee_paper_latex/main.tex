@@ -53,8 +53,8 @@ where $Q_\mu$ is the gain of signal states, $e_1$ is the error rate of single-ph
 \subsection{Post-Quantum Cryptography (PQC) Framework}
 For off-chain data encryption and authentication, we evaluate NIST-standardized PQC algorithms such as CRYSTALS-Kyber \cite{crystals2018}. The security of Kyber relies on the computational hardness of the Learning With Errors (LWE) over module lattices problem. Given a public matrix $\mathbf{A}$, a secret vector $\mathbf{s}$, and a small error vector $\mathbf{e}$, the LWE problem assumes it is computationally infeasible for a quantum adversary to distinguish $(\mathbf{A}, \mathbf{A}\mathbf{s} + \mathbf{e})$ from a uniformly random distribution.
 
-\subsection{AI Intrusion Detection System}
-To empirically validate our defense against advanced persistent threats (APTs) targeting the hospital's digital health APIs, we employ a Random Forest ensemble learning algorithm trained on the standard KDD Cup 1999 cybersecurity dataset \cite{kddcup99}. The dataset was filtered to isolate numerical features representing normal traffic versus network attacks (e.g., DoS and Probing). The ensemble method utilizes a multitude of decision trees to output the mode of the classes for robust binary classification.
+\subsection{AI Intrusion Detection System: A Comparative Study}
+To empirically validate our defense against advanced persistent threats (APTs) targeting the hospital's digital health APIs, we conducted a comprehensive comparative study between Ensemble Learning (Random Forest) and Deep Learning (Multi-Layer Perceptron Neural Networks). Both architectures were trained and evaluated on 494,021 network telemetry samples from the KDD Cup 1999 cybersecurity dataset \cite{kddcup99}. K-Fold cross-validation and learning curve analysis were utilized to ensure robust, non-overfitted performance when distinguishing normal health API traffic from malicious intrusions (e.g., DoS and Probing).
 
 \section{Simulation and Results}
 \subsection{QKD Performance Simulation}
@@ -76,18 +76,18 @@ We benchmarked the performance of Post-Quantum Cryptography algorithms (Kyber an
 \end{figure}
 
 \subsection{AI Defense Outcomes}
-The Random Forest model was evaluated on 494,021 network traffic samples from the KDD Cup 99 dataset, achieving an empirical accuracy of 99.95\%. The confusion matrix (Figure \ref{fig:ai_cm}) demonstrates exceptional true positive rates for detecting malicious intrusions, while the ROC Curve (Figure \ref{fig:ai_roc}) confirms a near-perfect Area Under the Curve (AUC).
+Both the Random Forest and MLP Neural Network architectures achieved exceptional empirical accuracy ($>$99\%) on the test dataset. Figure \ref{fig:ai_learning} illustrates the learning curve analysis, demonstrating that cross-validation scores converge optimally as the training sample size increases, confirming that neither model is overfitting. Furthermore, the comparative Receiver Operating Characteristic (ROC) curve (Figure \ref{fig:ai_roc_comp}) shows that the Ensemble approach slightly outperforms the Deep Learning approach in maintaining a near-perfect Area Under the Curve (AUC).
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=\linewidth]{figures/ai_confusion_matrix.png}}
-\caption{Confusion Matrix for AI Intrusion Detection.}
-\label{fig:ai_cm}
+\centerline{\includegraphics[width=\linewidth]{figures/ai_learning_curve.png}}
+\caption{Learning Curve Analysis (Cross-Validation) for both AI architectures.}
+\label{fig:ai_learning}
 \end{figure}
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=\linewidth]{figures/ai_roc_curve.png}}
-\caption{Receiver Operating Characteristic (ROC) Curve.}
-\label{fig:ai_roc}
+\centerline{\includegraphics[width=\linewidth]{figures/ai_roc_comparison.png}}
+\caption{Comparative ROC Curve: Deep Learning vs Ensemble.}
+\label{fig:ai_roc_comp}
 \end{figure}
 
 \section{Conclusion}

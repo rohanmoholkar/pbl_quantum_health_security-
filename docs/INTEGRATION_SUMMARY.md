@@ -14,7 +14,7 @@
 - **Output**: Semi-log graph showing SKR vs distance with 100km threshold
 - **Report Section**: 5.2 (Feasibility Modeling)
 
-#### `ai_intrusion_detection.py` - AI Anomaly Detection Engine
+#### `advanced_ai_intrusion_detection.py` - AI Anomaly Detection Engine
 - **Purpose**: Detects cyberattacks in hospital network traffic
 - **Key Features**:
   - Generates normal hospital traffic patterns (200 samples)
@@ -102,7 +102,7 @@ Comprehensive guide including:
 ├── styles.css          (Updated: +41 lines - Research styles)
 ├── script.js           (Updated: +52 lines - Research functions)
 ├── qkd_model.py        (New: 1,952 bytes)
-├── ai_intrusion_detection.py       (New: 1,705 bytes)
+├── advanced_ai_intrusion_detection.py       (New: 1,705 bytes)
 ├── pqc_compare.py      (New: 1,401 bytes)
 └── README_RESEARCH.md  (New: 3,106 bytes)
 ```
@@ -130,7 +130,7 @@ pip install numpy matplotlib scikit-learn
 
 # Run each module
 python qkd_model.py
-python ai_intrusion_detection.py
+python advanced_ai_intrusion_detection.py
 python pqc_compare.py
 ```
 
