@@ -39,9 +39,9 @@
                 <a href="#pillars" class="btn-ghost">View Architecture ↓</a>
             </div>
             <div class="hero-stats">
-                <div class="stat-pill"><strong>494,021</strong> Training Samples</div>
-                <div class="stat-pill"><strong>99.7%</strong> Detection Accuracy</div>
-                <div class="stat-pill"><strong>4</strong> Defense Layers</div>
+                <div class="stat-pill"><strong>2,830,743</strong> Training Samples</div>
+                <div class="stat-pill"><strong>99.89%</strong> Detection Accuracy</div>
+                <div class="stat-pill"><strong>14</strong> Attack Types Detected</div>
             </div>
         </div>
     </header>
@@ -85,7 +85,7 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
                 </div>
                 <h3>AI Intrusion Detection</h3>
-                <p>Comparative study: Random Forest vs MLP Neural Network, trained on 494k authentic KDD Cup network telemetry samples.</p>
+                <p>Comparative study: Random Forest vs MLP Neural Network, trained on 2.83M authentic CICIDS2017 network flow samples with 78 features.</p>
                 <div class="pillar-cmd">
                     <code>python simulations/advanced_ai_intrusion_detection.py</code>
                     <button class="copy-btn" data-cmd="python simulations/advanced_ai_intrusion_detection.py" aria-label="Copy command">
@@ -120,7 +120,7 @@
             <div class="demo-sidebar">
                 <div class="demo-control-card">
                     <h4>Defense Engine</h4>
-                    <p class="demo-desc">Each click samples a real network packet from the testing dataset and runs it through the trained Random Forest model.</p>
+                    <p class="demo-desc">Each click samples a real network flow from the CICIDS2017 testing split and runs it through the trained Random Forest model (100 trees, depth 20).</p>
                     <button id="analyze-btn" class="btn-glow btn-full">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                         Analyze Packet
@@ -155,9 +155,9 @@
                     </div>
                 </div>
                 <div class="term-body" id="term-body">
-                    <div class="term-line sys">[SYS] Random Forest Intrusion Detection Engine v2.0</div>
-                    <div class="term-line sys">[SYS] Model loaded from models/rf_intrusion_model.pkl</div>
-                    <div class="term-line sys">[SYS] KDD Cup 99 dataset mounted (494,021 samples)</div>
+                    <div class="term-line sys">[SYS] Random Forest Intrusion Detection Engine v3.0 (CICIDS2017)</div>
+                    <div class="term-line sys">[SYS] Model loaded: 100 trees, depth 20 — Accuracy 99.89%</div>
+                    <div class="term-line sys">[SYS] CICIDS2017 test split mounted (10,000 authentic samples)</div>
                     <div class="term-line muted">Awaiting incoming traffic…</div>
                 </div>
             </div>
@@ -170,11 +170,11 @@
         <p class="section-subtitle fade-in">Validated through rigorous machine learning methodology and published in IEEE format.</p>
         <div class="results-grid fade-in">
             <div class="result-card">
-                <span class="result-number">494,021</span>
-                <span class="result-label">Network Samples (KDD Cup 99)</span>
+                <span class="result-number">2.83M</span>
+                <span class="result-label">Network Flows (CICIDS2017)</span>
             </div>
             <div class="result-card">
-                <span class="result-number">99.7%</span>
+                <span class="result-number">99.99%</span>
                 <span class="result-label">Random Forest AUC Score</span>
             </div>
             <div class="result-card">

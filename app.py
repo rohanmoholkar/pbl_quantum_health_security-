@@ -1,47 +1,34 @@
-from flask import Flask, jsonify, send_from_directory
+from flask import Flask, jsonify
 import os
 import random
 import numpy as np
 import joblib
-from sklearn.datasets import fetch_kddcup99
 
 app = Flask(__name__, static_folder='.', static_url_path='')
 
-print("=== Booting Full-Stack AI Defense Server ===")
+print("=== Booting Full-Stack AI Defense Server (CICIDS2017) ===")
 
-# 1. Load the pre-trained Brain
-print("Loading Random Forest Model and Scaler...")
-model_path = os.path.join('models', 'rf_intrusion_model.pkl')
-scaler_path = os.path.join('models', 'scaler.pkl')
+# 1. Load the CICIDS2017-trained model
+MODEL_DIR = 'models'
+DATA_DIR  = 'datasets/cicids2017'
 
-if not os.path.exists(model_path):
-    print("CRITICAL ERROR: AI Model not found. Run training script first.")
-    exit(1)
+model  = joblib.load(os.path.join(MODEL_DIR, 'cicids_rf_model.pkl'))
+scaler = joblib.load(os.path.join(MODEL_DIR, 'cicids_scaler.pkl'))
+le     = joblib.load(os.path.join(MODEL_DIR, 'cicids_label_encoder.pkl'))
+print("✓ CICIDS2017 Random Forest model loaded")
 
-model = joblib.load(model_path)
-scaler = joblib.load(scaler_path)
-
-# 2. Load the Dataset for Authentic Sampling
-print("Loading KDD Cup 99 Dataset for authentic sampling (this takes a few seconds)...")
-kdd = fetch_kddcup99(percent10=True)
-raw_X = kdd.data
-raw_y = kdd.target
-
-print(f"Loaded {len(raw_X)} authentic network telemetry rows.")
-
-# Extract numerical features just like the training script
-X_numeric = []
-for row in raw_X:
-    num_row = []
-    for val in row:
-        if isinstance(val, (int, float)):
-            num_row.append(val)
-    X_numeric.append(num_row)
-
-X_numeric = np.array(X_numeric, dtype=float)
-y = np.array([label.decode('utf-8') for label in raw_y])
-
+# 2. Load pre-saved test samples for authentic demo
+X_test = np.load(os.path.join(DATA_DIR, 'X_test_sample.npy'))
+y_test = np.load(os.path.join(DATA_DIR, 'y_test_sample.npy'))
+y_labels = np.load(os.path.join(DATA_DIR, 'y_test_labels.npy'), allow_pickle=True)
+print(f"✓ Loaded {len(X_test):,} authentic test samples for live demo")
 print("Server Ready!")
+
+# Feature names from CICIDS2017 (for display)
+DISPLAY_FEATURES = [
+    "Flow Duration", "Total Fwd Packets", "Total Bwd Packets",
+    "Flow Bytes/s", "Flow Packets/s"
+]
 
 @app.route('/')
 def index():
@@ -49,39 +36,31 @@ def index():
 
 @app.route('/api/analyze_traffic')
 def analyze_traffic():
-    # 1. Randomly sample one AUTHENTIC row from the dataset
-    idx = random.randint(0, len(X_numeric) - 1)
-    sample_features = X_numeric[idx]
-    true_label = y[idx]
-    
-    # 2. Preprocess (Scale) just like in training
-    scaled_features = scaler.transform(sample_features.reshape(1, -1))
-    
-    # 3. Model Inference (True AI prediction)
-    prediction = model.predict(scaled_features)[0]
-    confidence_scores = model.predict_proba(scaled_features)[0]
-    confidence = np.max(confidence_scores) * 100
-    
-    # Format the original features for display
-    # (Just grab the first 5 metrics to avoid overwhelming the UI)
-    telemetry_summary = {
-        "Duration": float(sample_features[0]),
-        "Src_Bytes": float(sample_features[1]),
-        "Dst_Bytes": float(sample_features[2]),
-        "Failed_Logins": float(sample_features[4]),
-        "Compromised": float(sample_features[5])
-    }
-    
-    is_attack_prediction = bool(prediction == 1)
-    is_actual_attack = (true_label != 'normal.')
-    
+    # Sample one authentic row
+    idx = random.randint(0, len(X_test) - 1)
+    sample = X_test[idx]
+    true_binary = int(y_test[idx])
+    true_label  = str(y_labels[idx])
+
+    # Model inference — the sample is already scaled
+    prediction = int(model.predict(sample.reshape(1, -1))[0])
+    proba = model.predict_proba(sample.reshape(1, -1))[0]
+    confidence = float(np.max(proba) * 100)
+
+    # Build telemetry for display (first 5 raw feature values)
+    telemetry = {}
+    for i, name in enumerate(DISPLAY_FEATURES):
+        if i < len(sample):
+            telemetry[name] = float(sample[i])
+
     return jsonify({
         "status": "success",
-        "telemetry": telemetry_summary,
+        "dataset": "CICIDS2017",
+        "telemetry": telemetry,
         "true_label": true_label,
-        "is_actual_attack": is_actual_attack,
-        "is_attack_prediction": is_attack_prediction,
-        "confidence": float(confidence)
+        "is_actual_attack": bool(true_binary == 1),
+        "is_attack_prediction": bool(prediction == 1),
+        "confidence": confidence
     })
 
 if __name__ == '__main__':

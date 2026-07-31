@@ -64,7 +64,7 @@ For off-chain data encryption and authentication, we evaluate NIST-standardized 
 To guarantee data integrity and auditability without violating medical privacy regulations (e.g., HIPAA), we implement an off-chain storage model. Encrypted Electronic Health Records (EHRs) are stored on distributed networks like IPFS, while a Solidity-based smart contract maintains the cryptographic hash of the record on-chain. Role-Based Access Control (RBAC) is strictly enforced at the smart contract level, requiring patient authorization (via their Post-Quantum public key signature) before a medical professional can access or update the EHR hash. All access requests emit immutable blockchain events, neutralizing repudiation threats.
 
 \subsection{AI Intrusion Detection System: A Comparative Study}
-To empirically validate our defense against advanced persistent threats (APTs) targeting the hospital's digital health APIs, we conducted a comprehensive comparative study between Ensemble Learning (Random Forest) and Deep Learning (Multi-Layer Perceptron Neural Networks). Both architectures were trained and evaluated on 494,021 network telemetry samples from the KDD Cup 1999 cybersecurity dataset \cite{kddcup99}. K-Fold cross-validation and learning curve analysis were utilized to ensure robust, non-overfitted performance when distinguishing normal health API traffic from malicious intrusions (e.g., DoS and Probing).
+To empirically validate our defense against advanced persistent threats (APTs) targeting the hospital's digital health APIs, we conducted a comprehensive comparative study between Ensemble Learning (Random Forest) and Deep Learning (Multi-Layer Perceptron Neural Networks). Both architectures were trained and evaluated on the CICIDS2017 benchmark dataset \cite{cicids2017}, a modern corpus comprising 2,830,743 labeled network flow records across 78 features and 15 traffic classes (BENIGN plus 14 distinct attack categories including DDoS, Port Scan, Web Attacks, SSH Brute Force, and Heartbleed). K-Fold cross-validation and learning curve analysis were utilized to ensure robust, non-overfitted performance.
 
 \section{Simulation and Results}
 \subsection{QKD Performance Simulation}
@@ -86,17 +86,17 @@ We benchmarked the performance of Post-Quantum Cryptography algorithms (Kyber an
 \end{figure}
 
 \subsection{AI Defense Outcomes}
-Both the Random Forest and MLP Neural Network architectures achieved exceptional empirical accuracy ($>$99\%) on the test dataset. Figure \ref{fig:ai_learning} illustrates the learning curve analysis, demonstrating that cross-validation scores converge optimally as the training sample size increases, confirming that neither model is overfitting. Furthermore, the comparative Receiver Operating Characteristic (ROC) curve (Figure \ref{fig:ai_roc_comp}) shows that the Ensemble approach slightly outperforms the Deep Learning approach in maintaining a near-perfect Area Under the Curve (AUC).
+Both the Random Forest and MLP Neural Network architectures achieved exceptional empirical accuracy on the CICIDS2017 test dataset. The Random Forest ensemble achieved 99.89\% accuracy with an AUC of 0.9999, while the MLP achieved 99.44\% accuracy with an AUC of 0.9997. Figure \ref{fig:ai_learning} illustrates the learning curve analysis, demonstrating that cross-validation scores converge optimally as the training sample size increases, confirming that neither model is overfitting. Furthermore, the comparative Receiver Operating Characteristic (ROC) curve (Figure \ref{fig:ai_roc_comp}) shows that the Ensemble approach slightly outperforms the Deep Learning approach in maintaining a near-perfect Area Under the Curve.
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=\linewidth]{figures/ai_learning_curve.png}}
-\caption{Learning Curve Analysis (Cross-Validation) for both AI architectures.}
+\centerline{\includegraphics[width=\linewidth]{figures/cicids_learning_curve.png}}
+\caption{Learning Curve Analysis (3-Fold Cross-Validation) on CICIDS2017 for both AI architectures.}
 \label{fig:ai_learning}
 \end{figure}
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=\linewidth]{figures/ai_roc_comparison.png}}
-\caption{Comparative ROC Curve: Deep Learning vs Ensemble.}
+\centerline{\includegraphics[width=\linewidth]{figures/cicids_roc_comparison.png}}
+\caption{Comparative ROC Curve on CICIDS2017: Deep Learning vs Ensemble.}
 \label{fig:ai_roc_comp}
 \end{figure}
 
