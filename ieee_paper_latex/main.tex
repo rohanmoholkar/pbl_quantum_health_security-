@@ -49,7 +49,7 @@ To address quantum threats, researchers have explored Quantum Key Distribution (
 
 Despite these advancements, a critical research gap exists: existing systems often treat cryptography and network intelligence as isolated domains. While studies have demonstrated the efficacy of Machine Learning (particularly Random Forest algorithms) in detecting real-time intrusions in healthcare networks \cite{ai_ids_healthcare_2023}, there is a lack of unified frameworks combining these defenses. Our proposed architecture bridges this gap by unifying QKD, PQC, and Deep Learning/Ensemble ML into a cohesive, multi-layered healthcare security model.
 
-\section{Mathematical Modeling}
+\section{System Architecture}
 \subsection{Quantum Key Distribution (QKD) Modeling}
 To establish secure communication links between medical facilities, we model a standard BB84 protocol over fiber optic channels. The security and performance are dictated by the Gottesman-Lo-L\"{u}tkenhaus-Preskill (GLLP) equation \cite{gllp2004}. The Secure Key Rate (SKR) $R$ is expressed as a function of the error rate $e$ and transmittance $T$:
 \begin{equation}
@@ -59,6 +59,9 @@ where $Q_\mu$ is the gain of signal states, $e_1$ is the error rate of single-ph
 
 \subsection{Post-Quantum Cryptography (PQC) Framework}
 For off-chain data encryption and authentication, we evaluate NIST-standardized PQC algorithms such as CRYSTALS-Kyber \cite{crystals2018}. The security of Kyber relies on the computational hardness of the Learning With Errors (LWE) over module lattices problem. Given a public matrix $\mathbf{A}$, a secret vector $\mathbf{s}$, and a small error vector $\mathbf{e}$, the LWE problem assumes it is computationally infeasible for a quantum adversary to distinguish $(\mathbf{A}, \mathbf{A}\mathbf{s} + \mathbf{e})$ from a uniformly random distribution.
+
+\subsection{Blockchain Smart Contract Architecture}
+To guarantee data integrity and auditability without violating medical privacy regulations (e.g., HIPAA), we implement an off-chain storage model. Encrypted Electronic Health Records (EHRs) are stored on distributed networks like IPFS, while a Solidity-based smart contract maintains the cryptographic hash of the record on-chain. Role-Based Access Control (RBAC) is strictly enforced at the smart contract level, requiring patient authorization (via their Post-Quantum public key signature) before a medical professional can access or update the EHR hash. All access requests emit immutable blockchain events, neutralizing repudiation threats.
 
 \subsection{AI Intrusion Detection System: A Comparative Study}
 To empirically validate our defense against advanced persistent threats (APTs) targeting the hospital's digital health APIs, we conducted a comprehensive comparative study between Ensemble Learning (Random Forest) and Deep Learning (Multi-Layer Perceptron Neural Networks). Both architectures were trained and evaluated on 494,021 network telemetry samples from the KDD Cup 1999 cybersecurity dataset \cite{kddcup99}. K-Fold cross-validation and learning curve analysis were utilized to ensure robust, non-overfitted performance when distinguishing normal health API traffic from malicious intrusions (e.g., DoS and Probing).
@@ -125,8 +128,7 @@ To formally evaluate the resilience of our proposed architecture against advance
 \end{table}
 
 \section{Conclusion}
-The proposed architecture provides a robust, quantum-resistant framework for digital health identities. Future work will detail the blockchain integration and the exact consensus mechanisms for off-chain health data.
-
+The proposed architecture provides a robust, quantum-resistant framework for digital health identities. By unifying Quantum Key Distribution, Post-Quantum Cryptography, Blockchain Smart Contracts, and Deep Learning Intrusion Detection, this model guarantees information-theoretic secrecy and immutability for the next generation of healthcare networks.
 \bibliographystyle{IEEEtran}
 \bibliography{references}
 

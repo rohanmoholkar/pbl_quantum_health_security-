@@ -10,6 +10,7 @@ These modules model different aspects of the quantum-secured health system:
 2. **AI Intrusion Detection Engine** (`simulations/advanced_ai_intrusion_detection.py`) - Intelligence Layer  
    - Implements a Comparative Study of Ensemble Learning (Random Forest) vs Deep Learning (MLP Neural Network) trained on the empirical KDD Cup 1999 dataset (494k samples).
 3. **Post-Quantum Cryptography Comparison** (`simulations/pqc_compare.py`) - Cryptographic Analysis
+4. **Blockchain Smart Contract Simulator** (`simulations/blockchain_ehr_demo.py` & `blockchain/HealthIdentity.sol`) - Data Integrity Layer
 
 ## Installation
 
@@ -41,15 +42,26 @@ python simulations/advanced_ai_intrusion_detection.py
 
 **Output**: Scatter plot with blue points (normal traffic) and red points (detected attacks).
 
-### Module 3: PQC Comparison
+### 3. Cryptographic Analysis (PQC)
 
-Compares classical (RSA, ECC) vs quantum-resistant (Kyber, Dilithium) algorithms:
+Compares execution time of classical encryption (RSA/ECC) vs NIST-standardized Post-Quantum Cryptography (Kyber/Dilithium):
 
 ```bash
 python simulations/pqc_compare.py
 ```
 
-**Output**: Dual-axis bar chart showing speed vs security strength comparison.
+**Output**: Bar chart comparing key generation speeds in milliseconds.
+
+### 4. Blockchain Smart Contract Integration
+
+Simulates cryptographic hashing of Electronic Health Records on a decentralized ledger, mitigating data tampering and repudiation threats. 
+
+```bash
+python simulations/blockchain_ehr_demo.py
+```
+
+**Output**: Terminal simulation of a patient registering, a doctor updating an EHR, and an attempted tampering attack failing the cryptographic integrity check.
+**Contract Code**: The actual Solidity logic is located in `blockchain/HealthIdentity.sol`.
 
 ## Report Integration
 

@@ -24,15 +24,21 @@
 - **Output**: Scatter plot with blue (normal) and red (attack) points
 - **Report Section**: 5.4 (AI Anomaly Detection)
 
-#### `pqc_compare.py` - Post-Quantum Cryptography Comparison
-- **Purpose**: Compares classical vs quantum-resistant algorithms
+#### `pqc_compare.py` - Post-Quantum Benchmarking
+- **Purpose**: Evaluates computational feasibility of quantum-safe algorithms
 - **Key Features**:
-  - Analyzes RSA-2048, ECC-256, Kyber-512, Dilithium-II
-  - Measures key generation time (speed)
-  - Evaluates security strength (bits)
-  - Uses NIST Round 3 performance metrics
-- **Output**: Dual-axis bar chart (log scale for speed)
-- **Report Section**: 5.1 (PQC Selection)
+  - Compares RSA/ECC with Kyber/Dilithium
+  - Logarithmic scale visualization
+- **Output**: Bar chart of key generation times
+- **Report Section**: 5.3 (PQC Benchmarking)
+
+#### `blockchain_ehr_demo.py` & `HealthIdentity.sol` - Blockchain Data Integrity
+- **Purpose**: Off-chain storage and on-chain Role-Based Access Control (RBAC)
+- **Key Features**:
+  - Solidity smart contract for immutable audit trails
+  - Python cryptographic block hashing simulation
+- **Output**: Terminal logs of transactions and a simulated tampering attack
+- **Report Section**: 3.2 (Blockchain Smart Contract Architecture)
 
 ### 2. Website Integration
 
@@ -101,9 +107,13 @@ Comprehensive guide including:
 ├── index.html          (Updated: +268 lines - Research section)
 ├── styles.css          (Updated: +41 lines - Research styles)
 ├── script.js           (Updated: +52 lines - Research functions)
-├── qkd_model.py        (New: 1,952 bytes)
-├── advanced_ai_intrusion_detection.py       (New: 1,705 bytes)
-├── pqc_compare.py      (New: 1,401 bytes)
+├── simulations/
+│   ├── qkd_model.py
+│   ├── advanced_ai_intrusion_detection.py
+│   ├── pqc_compare.py
+│   └── blockchain_ehr_demo.py
+├── blockchain/
+│   └── HealthIdentity.sol
 └── README_RESEARCH.md  (New: 3,106 bytes)
 ```
 
