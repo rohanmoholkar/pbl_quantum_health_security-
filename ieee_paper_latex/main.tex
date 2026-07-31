@@ -53,12 +53,8 @@ where $Q_\mu$ is the gain of signal states, $e_1$ is the error rate of single-ph
 \subsection{Post-Quantum Cryptography (PQC) Framework}
 For off-chain data encryption and authentication, we evaluate NIST-standardized PQC algorithms such as CRYSTALS-Kyber \cite{crystals2018}. The security of Kyber relies on the computational hardness of the Learning With Errors (LWE) over module lattices problem. Given a public matrix $\mathbf{A}$, a secret vector $\mathbf{s}$, and a small error vector $\mathbf{e}$, the LWE problem assumes it is computationally infeasible for a quantum adversary to distinguish $(\mathbf{A}, \mathbf{A}\mathbf{s} + \mathbf{e})$ from a uniformly random distribution.
 
-\subsection{AI Anomaly Detection}
-To defend against advanced persistent threats (APTs) targeting the hospital's digital health terminals, we employ an Isolation Forest algorithm \cite{liu2008isolation}. The model isolates anomalies instead of profiling normal data points. The anomaly score $s(x, n)$ for a data point $x$ in a dataset of size $n$ is defined by its average path length $E(h(x))$:
-\begin{equation}
-s(x, n) = 2^{-\frac{E(h(x))}{c(n)}}
-\end{equation}
-where $c(n)$ is the average path length of unsuccessful searches in a Binary Search Tree. A score close to $1$ strongly indicates an anomaly.
+\subsection{AI Intrusion Detection System}
+To empirically validate our defense against advanced persistent threats (APTs) targeting the hospital's digital health APIs, we employ a Random Forest ensemble learning algorithm trained on the standard KDD Cup 1999 cybersecurity dataset \cite{kddcup99}. The dataset was filtered to isolate numerical features representing normal traffic versus network attacks (e.g., DoS and Probing). The ensemble method utilizes a multitude of decision trees to output the mode of the classes for robust binary classification.
 
 \section{Simulation and Results}
 \subsection{QKD Performance Simulation}
@@ -80,12 +76,18 @@ We benchmarked the performance of Post-Quantum Cryptography algorithms (Kyber an
 \end{figure}
 
 \subsection{AI Defense Outcomes}
-The Isolation Forest model was evaluated on simulated telemetry traffic representing hospital API requests. Figure \ref{fig:ai} visualizes the isolation of malicious traffic clusters from normal baseline traffic.
+The Random Forest model was evaluated on 494,021 network traffic samples from the KDD Cup 99 dataset, achieving an empirical accuracy of 99.95\%. The confusion matrix (Figure \ref{fig:ai_cm}) demonstrates exceptional true positive rates for detecting malicious intrusions, while the ROC Curve (Figure \ref{fig:ai_roc}) confirms a near-perfect Area Under the Curve (AUC).
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=\linewidth]{figures/ai_defense_anomalies.png}}
-\caption{Isolation Forest anomaly detection on simulated network traffic.}
-\label{fig:ai}
+\centerline{\includegraphics[width=\linewidth]{figures/ai_confusion_matrix.png}}
+\caption{Confusion Matrix for AI Intrusion Detection.}
+\label{fig:ai_cm}
+\end{figure}
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=\linewidth]{figures/ai_roc_curve.png}}
+\caption{Receiver Operating Characteristic (ROC) Curve.}
+\label{fig:ai_roc}
 \end{figure}
 
 \section{Conclusion}

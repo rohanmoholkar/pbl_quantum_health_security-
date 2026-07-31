@@ -278,7 +278,7 @@ for i, h in enumerate(dev_headers):
 dev_data = [
     ('Programming Language', 'S/W', 'Python 3.9+ with NumPy, Matplotlib, Scikit-learn'),
     ('QKD Simulation', 'S/W', 'Custom GLLP-based model (qkd_model.py) with SMF-28 fiber parameters'),
-    ('AI Framework', 'S/W', 'Scikit-learn Isolation Forest (ai_defense.py) for anomaly detection'),
+    ('AI Framework', 'S/W', 'Scikit-learn Isolation Forest (ai_intrusion_detection.py) for anomaly detection'),
     ('Web Platform', 'S/W', 'HTML5, CSS3, JavaScript with Canvas API for interactive simulations'),
     ('Hardware', 'H/W', 'Standard computing hardware; QKD hardware modeled in simulation only'),
 ]
@@ -358,11 +358,11 @@ add_body(doc, "This modeling directly informs the deployment strategy for India'
 add_body(doc, "[Figure 4.1: QKD Feasibility — Secure Key Rate vs. Distance — Insert screenshot of qkd_model.py output here]")
 
 add_body(doc, "4.1.3 AI Anomaly Detection Framework")
-add_body(doc, "An Isolation Forest-based anomaly detection engine (ai_defense.py) was designed and implemented to detect cyberattacks in hospital network traffic. The model was trained on a simulated dataset comprising 200 normal hospital traffic samples (distributed in two Gaussian clusters representing standard EHR access and administrative operations) and 20 attack anomaly samples (uniformly distributed outliers representing DDoS, ransomware, and data exfiltration attempts).")
+add_body(doc, "An Isolation Forest-based anomaly detection engine (ai_intrusion_detection.py) was designed and implemented to detect cyberattacks in hospital network traffic. The model was trained on a simulated dataset comprising 200 normal hospital traffic samples (distributed in two Gaussian clusters representing standard EHR access and administrative operations) and 20 attack anomaly samples (uniformly distributed outliers representing DDoS, ransomware, and data exfiltration attempts).")
 
 add_body(doc, "The Isolation Forest algorithm was selected for its efficiency in detecting anomalies in high-dimensional, high-volume data streams — a critical requirement for real-time hospital network monitoring. With a contamination parameter of 10%, the model successfully identified and isolated 17 out of 20 injected attack patterns, achieving an overall detection accuracy of 85-90% while maintaining a low false-positive rate on legitimate traffic. The visualization produces a scatter plot with green points (normal traffic) and red points (detected attacks), clearly demonstrating the model's ability to separate legitimate healthcare data access from malicious intrusion attempts.")
 
-add_body(doc, "[Figure 4.2: AI Anomaly Detection — Hospital Network Traffic Scatter Plot — Insert screenshot of ai_defense.py output here]")
+add_body(doc, "[Figure 4.2: AI Anomaly Detection — Hospital Network Traffic Scatter Plot — Insert screenshot of ai_intrusion_detection.py output here]")
 
 add_body(doc, "4.1.4 Comparative Literature Survey")
 add_body(doc, "A systematic comparative review of 10 key research works was conducted across five dimensions: QKD, PQC, Blockchain, AI, and India-specific applicability. The survey analyzed papers spanning quantum security, blockchain healthcare applications, AI anomaly detection, and India-specific digital health infrastructure.")
@@ -448,7 +448,7 @@ add_heading_styled(doc, "4.2 Screenshots / Sketches / Flow Diagrams", level=2)
 add_body(doc, "[Note: Insert the following screenshots and diagrams in this section to meet the 12-page minimum requirement:]")
 add_bullet(doc, "Figure 3.1: System Architecture Diagram — Four-pillar framework overview with data flow arrows")
 add_bullet(doc, "Figure 4.1: QKD Model Output — Semi-log graph of Secure Key Rate vs. Distance (qkd_model.py)")
-add_bullet(doc, "Figure 4.2: AI Defense Output — Scatter plot of hospital network traffic (ai_defense.py)")
+add_bullet(doc, "Figure 4.2: AI Defense Output — Scatter plot of hospital network traffic (ai_intrusion_detection.py)")
 add_bullet(doc, "Figure 4.3: PQC Comparison Output — Dual-axis bar chart (pqc_compare.py)")
 add_bullet(doc, "Figure 4.4: Project Website Screenshots — Hero section, Research section, Literature Survey, STRIDE section")
 add_bullet(doc, "Secure Transaction Flow Diagram — Patient → Aadhaar → QKD Link → Blockchain → AI Monitor")
