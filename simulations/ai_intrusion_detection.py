@@ -54,7 +54,7 @@ acc = accuracy_score(y_test, y_pred)
 print(f"Model Accuracy: {acc * 100:.2f}%")
 
 # Create figures directory if it doesn't exist
-fig_dir = '../ieee_paper_latex/figures'
+fig_dir = 'ieee_paper_latex/figures'
 os.makedirs(fig_dir, exist_ok=True)
 
 # 1. Confusion Matrix
