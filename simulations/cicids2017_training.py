@@ -330,8 +330,8 @@ joblib.dump(rf_model, os.path.join(MODEL_DIR, 'cicids_rf_model.pkl'))
 joblib.dump(scaler, os.path.join(MODEL_DIR, 'cicids_scaler.pkl'))
 joblib.dump(le, os.path.join(MODEL_DIR, 'cicids_label_encoder.pkl'))
 
-# Save a test sample for the live demo (10k rows — small enough to load fast)
-demo_size = min(10000, len(X_test))
+# Save a test sample for the live demo (100k rows to show massive scale)
+demo_size = min(100000, len(X_test))
 np.save(os.path.join(DATA_DIR, 'X_test_sample.npy'), X_test[:demo_size])
 np.save(os.path.join(DATA_DIR, 'y_test_sample.npy'), y_test[:demo_size])
 # Save raw labels for demo display
