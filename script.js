@@ -151,7 +151,7 @@
 
             // Show telemetry
             addLine(
-                `  Telemetry → Duration: ${data.telemetry.Duration}ms  SrcBytes: ${data.telemetry.Src_Bytes}  DstBytes: ${data.telemetry.Dst_Bytes}  FailedLogins: ${data.telemetry.Failed_Logins}`,
+                `  Telemetry → Duration: ${data.telemetry['Flow Duration']}s  FwdPkts: ${data.telemetry['Total Fwd Packets']}  BwdPkts: ${data.telemetry['Total Bwd Packets']}  Bytes/s: ${data.telemetry['Flow Bytes/s']}`,
                 'data'
             );
 
@@ -159,16 +159,10 @@
             const truthTag = data.is_actual_attack ? 'ATTACK' : 'NORMAL';
 
             if (data.is_attack_prediction) {
-                addLine(
-                    `  ✗ [BLOCKED] Intrusion Detected — Confidence ${data.confidence.toFixed(1)}%  (Ground Truth: ${data.true_label})`,
-                    'danger'
-                );
-                addLine('    → Connection dropped. Source IP blacklisted.', 'warn');
+                addLine(`✗ [BLOCKED] Intrusion Detected — Confidence ${data.confidence.toFixed(1)}% (Ground Truth: ${truthTag})`, 'error');
+                addLine(`→ Connection dropped. Source IP blacklisted.`, 'warning');
             } else {
-                addLine(
-                    `  ✓ [PASSED]  Normal Traffic — Confidence ${data.confidence.toFixed(1)}%  (Ground Truth: ${data.true_label})`,
-                    'safe'
-                );
+                addLine(`✓ [PASSED] Normal Traffic — Confidence ${data.confidence.toFixed(1)}% (Ground Truth: ${truthTag})`, 'success');
             }
 
             addLine('─'.repeat(60), 'sep');
