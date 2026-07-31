@@ -48,10 +48,6 @@ def analyze_traffic():
     proba = model.predict_proba(sample.reshape(1, -1))[0]
     confidence = float(np.max(proba) * 100)
     
-    # Introduce slight realistic jitter if the trees output 100% pure predictions
-    if confidence >= 99.0:
-        confidence = confidence - random.uniform(0.1, 4.5)
-
     # Build telemetry for display (first 5 raw feature values)
     telemetry = {}
     for i, name in enumerate(DISPLAY_FEATURES):
