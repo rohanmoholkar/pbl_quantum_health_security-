@@ -41,7 +41,7 @@
 
 **Components**:
 1. **Section Header**
-   - Tag: "PBL-2 Research"
+   - Tag: "PBL-3 Research"
    - Title: "Simulation Models"
    - Description of three Python modules
 
@@ -134,7 +134,7 @@ python ai_defense.py
 python pqc_compare.py
 ```
 
-### For PBL-2 Report:
+### For PBL-3 Report:
 1. Run all three Python scripts
 2. Capture screenshots of generated graphs
 3. Include in respective report sections:
@@ -189,12 +189,12 @@ python pqc_compare.py
 2. **Capture Screenshots**: Save high-quality images for report
 3. **Review Website**: Check all interactive elements work
 4. **Prepare Presentation**: Use website to demonstrate research models
-5. **Document Methodology**: Reference these models in PBL-2 report
+5. **Document Methodology**: Reference these models in PBL-3 report
 
 ---
 
 **Project**: Quantum-Secured Digital Health Identity System for India  
-**Phase**: PBL-2 Research & Modeling  
+**Phase**: PBL-3 Research & Modeling  
 **Author**: Rohan Sanjeev Moholkar  
 **Institution**: Department of IT, Manipal University Jaipur  
 **Date**: February 2026

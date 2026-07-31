@@ -70,7 +70,7 @@ add_heading1(doc, "Table of Contents")
 add_paragraph(doc, "1. Introduction\n   1.1 Introduction\n   1.2 Problem Statement\n   1.3 Objectives\n   1.4 Scope of Project")
 add_paragraph(doc, "3. Proposed System Design & Methodology\n   3.1 System Architecture\n   3.2 Development Environment (H/w & S/W)\n   3.3 Methodology: Algorithm/Procedures")
 add_paragraph(doc, "4. Work Done in PBL-1\n   4.1 Tasks achieved so far\n   4.2 Screenshots / sketches / circuit diagram / flow diagrams\n   4.3 Timeline / Gantt chart for all phases (PBL-1,2,3)")
-add_paragraph(doc, "5. Conclusion and Future Plan\n   5.1 Summary of Phase-1 outcomes\n   5.2 Tasks planned for PBL-2 (next phase)")
+add_paragraph(doc, "5. Conclusion and Future Plan\n   5.1 Summary of Phase-1 outcomes\n   5.2 Tasks planned for PBL-3 (next phase)")
 add_paragraph(doc, "References")
 doc.add_page_break()
 
@@ -111,13 +111,13 @@ add_heading2(doc, "4.2 Screenshots / sketches / circuit diagram / flow diagrams"
 add_paragraph(doc, "[Note to student: Insert architecture diagram and flowchart here in your final document to expand the page count and illustrate your concepts visually.]")
 
 add_heading2(doc, "4.3 Timeline / Gantt chart for all phases (PBL-1,2,3)")
-add_paragraph(doc, "Phase 1 (PBL-1): 8 Weeks - Idea Selection, Problem Analysis, Requirement Gathering, Architectural Framework Proposal, High-Level Flow Design.\nPhase 2 (PBL-2): 16 Weeks - P-Q Cryptography Selection, QKD Integration Modeling, Blockchain Consensus Research, AI Anomaly Detection Framework Design.\nPhase 3 (PBL-3): 16 Weeks - Comprehensive Testing of Theoretical Models, Integration of Research Findings, Final Paper Documentation.")
+add_paragraph(doc, "Phase 1 (PBL-1): 8 Weeks - Idea Selection, Problem Analysis, Requirement Gathering, Architectural Framework Proposal, High-Level Flow Design.\nPhase 2 (PBL-3): 16 Weeks - P-Q Cryptography Selection, QKD Integration Modeling, Blockchain Consensus Research, AI Anomaly Detection Framework Design.\nPhase 3 (PBL-3): 16 Weeks - Comprehensive Testing of Theoretical Models, Integration of Research Findings, Final Paper Documentation.")
 
 add_heading1(doc, "5. Conclusion and Future Plan")
 add_heading2(doc, "5.1 Summary of Phase-1 outcomes")
 add_paragraph(doc, "Phase 1 successfully laid the conceptual and architectural foundation for the Quantum-Secured Digital Health Identity System for India. Our analysis identified the dual threat—classical exploitation and the quantum computing threat—as the primary drivers for a new security paradigm. The outcomes include a robust four-pillar framework designed to provide an immutable defense layer. This vision establishes a future where every citizen's health record is secure, private, and instantly accessible without risk of intrusion.")
 
-add_heading2(doc, "5.2 Tasks planned for PBL-2 (next phase)")
+add_heading2(doc, "5.2 Tasks planned for PBL-3 (next phase)")
 add_paragraph(doc, "The next phase will focus on developing theoretical and software simulation models of the proposed framework. Key planned tasks include selecting post-quantum cryptography algorithms, modeling QKD photon loss thresholds over fiber networks, researching optimized blockchain consensus mechanisms for high-volume transactions, and building a prototype AI anomaly detection framework to test fraud-prevention algorithms.")
 
 add_heading1(doc, "References")

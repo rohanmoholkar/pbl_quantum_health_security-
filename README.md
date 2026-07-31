@@ -1,6 +1,6 @@
-# Quantum-Secured Digital Health Identity System (PBL-2)
+# Quantum-Secured Digital Health Identity System (PBL-3)
 
-This repository contains the simulation models and academic drafts for the PBL-2 Research & Modeling phase of the Quantum-Secured Digital Health Identity System project.
+This repository contains the simulation models and academic drafts for the PBL-3 Research & Modeling phase of the Quantum-Secured Digital Health Identity System project.
 
 ## Overview
 
@@ -62,8 +62,8 @@ To compile the paper:
 
 **Rohan Sanjeev Moholkar**  
 Department of IT, Manipal University Jaipur  
-PBL-2 Project: Quantum-Secured Digital Health Identity System for India
+PBL-3 Project: Quantum-Secured Digital Health Identity System for India
 
 ## License
 
-This project is part of academic coursework for PBL-2 at Manipal University Jaipur.
+This project is part of academic coursework for PBL-3 at Manipal University Jaipur.

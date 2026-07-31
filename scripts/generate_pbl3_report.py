@@ -85,7 +85,7 @@ add_empty_lines(doc, 2)
 add_centered(doc, "A Project Report", size=14, bold=True, space_after=4)
 add_centered(doc, "on", size=12, italic=True, space_after=8)
 add_centered(doc, "Quantum-Secured Digital Health Identity\nSystem for India", size=18, bold=True, space_after=12)
-add_centered(doc, "carried out as part of the PBL-2 (INT2170) Submitted", size=12, italic=True, space_after=12)
+add_centered(doc, "carried out as part of the PBL-3 (INT2170) Submitted", size=12, italic=True, space_after=12)
 add_centered(doc, "by", size=12, space_after=8)
 add_centered(doc, "Rohan Sanjeev Moholkar\n2428010109", size=12, bold=True, space_after=20)
 add_empty_lines(doc, 1)
@@ -105,7 +105,7 @@ doc.add_page_break()
 # ============ 2. ABSTRACT ============
 add_centered(doc, "ABSTRACT", size=14, bold=True, space_after=12)
 
-add_body(doc, "The rapid digitization of India's healthcare infrastructure, serving over 1.4 billion citizens, has created centralized data targets vulnerable to both classical cyberattacks and the emerging existential threat of quantum computing. This report details the comprehensive work undertaken during Phase 2 (PBL-2: Research & Modeling) of the Quantum-Secured Digital Health Identity System project. Building upon the architectural foundation established in PBL-1, this phase focused on deep theoretical investigation, simulation modeling, and formal security analysis of the proposed four-pillar framework integrating Aadhaar authentication, Quantum Key Distribution (QKD), Blockchain, and AI-based anomaly detection.")
+add_body(doc, "The rapid digitization of India's healthcare infrastructure, serving over 1.4 billion citizens, has created centralized data targets vulnerable to both classical cyberattacks and the emerging existential threat of quantum computing. This report details the comprehensive work undertaken during Phase 2 (PBL-3: Research & Modeling) of the Quantum-Secured Digital Health Identity System project. Building upon the architectural foundation established in PBL-1, this phase focused on deep theoretical investigation, simulation modeling, and formal security analysis of the proposed four-pillar framework integrating Aadhaar authentication, Quantum Key Distribution (QKD), Blockchain, and AI-based anomaly detection.")
 
 add_body(doc, "Three Python-based simulation models were developed and validated: (1) a QKD feasibility model using the GLLP formula over SMF-28 fiber demonstrating a maximum secure transmission distance of approximately 100 km, (2) an AI anomaly detection engine using the Isolation Forest algorithm achieving 90%+ accuracy on simulated hospital network traffic, and (3) a Post-Quantum Cryptography (PQC) comparative analysis showing CRYSTALS-Kyber-512 achieves 16,000x faster key generation than RSA-2048 while maintaining equivalent 128-bit security. Additionally, a comparative literature survey of 10 key research works confirmed the unique research gap addressed by our framework, and a formal STRIDE threat model analysis demonstrated comprehensive security coverage with an average residual risk of only 7.2%. These research outcomes establish the rigorous academic foundation for the final integration phase in PBL-3.")
 
@@ -186,7 +186,7 @@ toc_items = [
     ("", "3.1 System Architecture", "6"),
     ("", "3.2 Development Environment (H/w & S/W)", "9"),
     ("", "3.3 Methodology: Algorithm/Procedures", "10"),
-    ("4.", "Work Done in PBL-2", "11"),
+    ("4.", "Work Done in PBL-3", "11"),
     ("", "4.1 Tasks Achieved So Far", "11"),
     ("", "4.2 Screenshots / Sketches / Flow Diagrams", "15"),
     ("", "4.3 Timeline / Gantt Chart for All Phases (PBL-1,2,3)", "18"),
@@ -226,10 +226,10 @@ add_body(doc, "The \"Harvest Now, Decrypt Later\" (HNDL) paradigm makes this thr
 add_body(doc, "The integrated quantum-safe technology framework proposed in this project offers profound advantages for India's digital health landscape. Future-Proof Security guarantees protection against any potential quantum attack, securing patient data for the next century, not just the next decade. Enhanced Patient Privacy leverages blockchain and QKD to ensure the patient retains definitive control and ownership over their sensitive medical information. The Zero-Fraud Environment combines AI-driven real-time monitoring with the immutable nature of the blockchain ledger to enforce total transparency and accountability. Seamless, Trustworthy Sharing enables instant, secure, and verifiable exchange of medical data across disparate healthcare providers throughout all of India. Real-Time Defense ensures AI continuously monitors the entire system, flagging fraud, misuse, or irregular access instantly.")
 
 add_heading_styled(doc, "1.2 Problem Statement", level=2)
-add_body(doc, "The central problem addressed by this project is the critical vulnerability of India's rapidly growing, centralized digital health ecosystem to both current classical cyberattacks and the catastrophic future threat posed by quantum computers. Current security measures rely on mathematical complexity (RSA, ECC) rather than physical laws, making them fundamentally breakable by sufficiently advanced computing. Medical identity theft affects millions of Indians annually, ransomware attacks have crippled major hospitals including AIIMS Delhi, and the HNDL paradigm means that data encrypted today is already compromised for future quantum adversaries. No existing solution addresses all four dimensions of this problem simultaneously: authentication, transmission security, data integrity, and real-time threat detection. The work in PBL-2 is carried out to validate the theoretical feasibility and security properties of our proposed four-pillar solution through rigorous research, simulation modeling, and formal security analysis.")
+add_body(doc, "The central problem addressed by this project is the critical vulnerability of India's rapidly growing, centralized digital health ecosystem to both current classical cyberattacks and the catastrophic future threat posed by quantum computers. Current security measures rely on mathematical complexity (RSA, ECC) rather than physical laws, making them fundamentally breakable by sufficiently advanced computing. Medical identity theft affects millions of Indians annually, ransomware attacks have crippled major hospitals including AIIMS Delhi, and the HNDL paradigm means that data encrypted today is already compromised for future quantum adversaries. No existing solution addresses all four dimensions of this problem simultaneously: authentication, transmission security, data integrity, and real-time threat detection. The work in PBL-3 is carried out to validate the theoretical feasibility and security properties of our proposed four-pillar solution through rigorous research, simulation modeling, and formal security analysis.")
 
 add_heading_styled(doc, "1.3 Objectives", level=2)
-add_body(doc, "The primary objectives achieved in PBL-2 (Research & Modeling phase) include:")
+add_body(doc, "The primary objectives achieved in PBL-3 (Research & Modeling phase) include:")
 add_bullet(doc, "To conduct a comparative analysis of Post-Quantum Cryptography (PQC) algorithms, comparing classical RSA-2048 and ECC-256 against quantum-resistant CRYSTALS-Kyber-512 and CRYSTALS-Dilithium-II using NIST Round 3 standardized performance metrics.")
 add_bullet(doc, "To develop a QKD feasibility simulation model using the GLLP formula over standard SMF-28 fiber parameters, determining the maximum secure transmission distance and establishing network planning guidelines for India's fiber infrastructure.")
 add_bullet(doc, "To design and implement an AI-based anomaly detection framework using the Isolation Forest algorithm, trained on simulated hospital network traffic patterns to detect cyberattacks including DDoS, ransomware, and data exfiltration attempts.")
@@ -238,7 +238,7 @@ add_bullet(doc, "To perform a formal STRIDE (Spoofing, Tampering, Repudiation, I
 add_bullet(doc, "To develop an interactive project website with live simulation demonstrations of all three research models, serving as a presentation and documentation platform.")
 
 add_heading_styled(doc, "1.4 Scope of Project", level=2)
-add_body(doc, "The scope of PBL-2 focuses on the research and modeling dimension of the Quantum-Secured Digital Health Identity System. This phase encompasses: (a) theoretical simulation and validation of the QKD transmission layer over standard Indian telecom fiber, (b) comparative benchmarking of post-quantum cryptographic algorithms for healthcare network encryption, (c) machine learning-based anomaly detection framework design for real-time hospital network security, (d) formal security analysis using the industry-standard STRIDE methodology, and (e) comprehensive literature survey establishing the research gap. The scope is limited to simulation-based research and does not include hardware deployment or clinical trials. The target outcome is a rigorously validated theoretical foundation suitable for prototype implementation in PBL-3.")
+add_body(doc, "The scope of PBL-3 focuses on the research and modeling dimension of the Quantum-Secured Digital Health Identity System. This phase encompasses: (a) theoretical simulation and validation of the QKD transmission layer over standard Indian telecom fiber, (b) comparative benchmarking of post-quantum cryptographic algorithms for healthcare network encryption, (c) machine learning-based anomaly detection framework design for real-time hospital network security, (d) formal security analysis using the industry-standard STRIDE methodology, and (e) comprehensive literature survey establishing the research gap. The scope is limited to simulation-based research and does not include hardware deployment or clinical trials. The target outcome is a rigorously validated theoretical foundation suitable for prototype implementation in PBL-3.")
 
 doc.add_page_break()
 
@@ -261,7 +261,7 @@ add_body(doc, "The Secure Transaction Flow operates as follows: Step 1 (Authenti
 add_body(doc, "[Figure 3.1: System Architecture of the Four-Pillar Framework — Insert diagram here showing Patient → Aadhaar Auth → Hospital → QKD Link → National Health Database → Blockchain Ledger, with AI Monitoring overlay]")
 
 add_heading_styled(doc, "3.2 Development Environment (H/w & S/W)", level=2)
-add_body(doc, "For the research and modeling phase of PBL-2, the following development environment was utilized:")
+add_body(doc, "For the research and modeling phase of PBL-3, the following development environment was utilized:")
 
 # Dev env table
 dev_table = doc.add_table(rows=6, cols=3)
@@ -296,7 +296,7 @@ add_body(doc, "")
 add_body(doc, "Table 3.1: Development Environment (Hardware & Software)")
 
 add_heading_styled(doc, "3.3 Methodology: Algorithm/Procedures", level=2)
-add_body(doc, "The research methodology in PBL-2 followed a systematic approach across three parallel investigation tracks:")
+add_body(doc, "The research methodology in PBL-3 followed a systematic approach across three parallel investigation tracks:")
 
 add_body(doc, "Track 1 — QKD Feasibility Modeling: We implemented the Gottesman-Lo-Lütkenhaus-Preskill (GLLP) formula to calculate the Secure Key Rate (SKR) as a function of fiber distance. The simulation uses standard telecom fiber parameters: attenuation coefficient α = 0.2 dB/km (SMF-28 at 1550nm wavelength), detector efficiency η = 10%, dark count rate = 10⁻⁶, and source pulse rate = 1 GHz. The photon survival probability is calculated as T = 10^(-αL/10) where L is the fiber distance. The raw detection rate is computed as R = Source_Rate × T × η, and the SKR is derived by subtracting noise overhead. The simulation sweeps from 0 to 150 km to identify the practical transmission limit.")
 
@@ -306,11 +306,11 @@ add_body(doc, "Track 3 — PQC Comparative Analysis: We benchmarked four cryptog
 
 doc.add_page_break()
 
-# ============ CHAPTER 4: WORK DONE IN PBL-2 ============
-add_heading_styled(doc, "4. Work Done in PBL-2", level=1)
+# ============ CHAPTER 4: WORK DONE IN PBL-3 ============
+add_heading_styled(doc, "4. Work Done in PBL-3", level=1)
 
 add_heading_styled(doc, "4.1 Tasks Achieved So Far", level=2)
-add_body(doc, "The PBL-2 phase (Research & Modeling) achieved the following major milestones:")
+add_body(doc, "The PBL-3 phase (Research & Modeling) achieved the following major milestones:")
 
 add_body(doc, "4.1.1 Post-Quantum Cryptography (PQC) Analysis")
 add_body(doc, "A comprehensive comparative analysis was conducted between classical cryptographic algorithms (RSA-2048, ECC-256) and NIST-standardized post-quantum algorithms (CRYSTALS-Kyber-512, CRYSTALS-Dilithium-II). The analysis was implemented in Python (pqc_compare.py) and produced a dual-axis bar chart comparing key generation latency (log scale) against security strength in bits.")
@@ -468,7 +468,7 @@ for i, h in enumerate(gantt_headers):
             r.font.size = Pt(10)
 gantt_data = [
     ('Phase 1: Foundation & Design (PBL-1)', 'Idea Selection, Problem Analysis, Requirement Gathering, Architectural Framework Proposal, High-Level Flow Design, Initial Report', '8 Weeks', 'COMPLETED ✓'),
-    ('Phase 2: Research & Modeling (PBL-2)', 'PQC Analysis, QKD Modeling, AI Anomaly Detection Framework, Literature Survey, STRIDE Threat Model, Interactive Website', '16 Weeks', 'COMPLETED ✓'),
+    ('Phase 2: Research & Modeling (PBL-3)', 'PQC Analysis, QKD Modeling, AI Anomaly Detection Framework, Literature Survey, STRIDE Threat Model, Interactive Website', '16 Weeks', 'COMPLETED ✓'),
     ('Phase 3: Deep Analysis & Final Paper (PBL-3)', 'Comprehensive Testing of Theoretical Models, Integration of Research Findings, Final Paper Documentation, Peer Review Submission', '16 Weeks', 'NEXT →'),
 ]
 for idx, row_data in enumerate(gantt_data):
@@ -487,7 +487,7 @@ doc.add_page_break()
 add_heading_styled(doc, "5. Conclusion and Future Plan", level=1)
 
 add_heading_styled(doc, "5.1 Summary of Phase-2 Outcomes", level=2)
-add_body(doc, "PBL-2 has successfully completed the Research & Modeling phase of the Quantum-Secured Digital Health Identity System project, establishing the rigorous academic and technical foundation required for the final integration phase. The key outcomes are:")
+add_body(doc, "PBL-3 has successfully completed the Research & Modeling phase of the Quantum-Secured Digital Health Identity System project, establishing the rigorous academic and technical foundation required for the final integration phase. The key outcomes are:")
 
 add_bullet(doc, "PQC Analysis Validated: CRYSTALS-Kyber-512 was identified as the optimal post-quantum algorithm for healthcare encryption, offering 16,000x speed improvement over RSA with equivalent security — confirmed through NIST Round 3 metric comparison.")
 add_bullet(doc, "QKD Feasibility Established: The GLLP-based simulation confirmed QKD viability up to approximately 100 km on standard Indian fiber, with trusted relay nodes required for national-scale deployment beyond this threshold.")
@@ -533,7 +533,7 @@ for ref in refs:
     run.font.size = Pt(10)
 
 # ============ SAVE ============
-output_path = "PBL2_Report_Final.docx"
+output_path = "PBL3_Report_Final.docx"
 doc.save(output_path)
-print(f"SUCCESS: PBL-2 Report saved as '{output_path}'")
+print(f"SUCCESS: PBL-3 Report saved as '{output_path}'")
 print(f"Estimated pages: 18-22 (with inserted figures, will exceed 12-page minimum)")

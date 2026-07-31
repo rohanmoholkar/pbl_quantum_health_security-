@@ -5,12 +5,12 @@ import os
 
 # --- CONFIGURATION ---
 IMAGE_FILENAME = 'dashboard.png'  # RENAME YOUR UPLOADED IMAGE TO THIS
-PDF_FILENAME = 'PBL2_Report_Final.pdf'
+PDF_FILENAME = 'PBL3_Report_Final.pdf'
 
 class PDF(FPDF):
     def header(self):
         self.set_font('Arial', 'B', 12)
-        self.cell(0, 10, 'PBL-2 Project Report: Quantum-Secured Digital Health', 0, 1, 'C')
+        self.cell(0, 10, 'PBL-3 Project Report: Quantum-Secured Digital Health', 0, 1, 'C')
         self.ln(5)
 
     def footer(self):
@@ -74,7 +74,7 @@ pdf.cell(0, 15, 'Quantum-Secured Digital Health', 0, 1, 'C')
 pdf.cell(0, 15, 'Identity System for India', 0, 1, 'C')
 pdf.set_font('Arial', '', 16)
 pdf.ln(20)
-pdf.cell(0, 10, 'PBL-2 Phase: Research & Modeling', 0, 1, 'C')
+pdf.cell(0, 10, 'PBL-3 Phase: Research & Modeling', 0, 1, 'C')
 pdf.ln(40)
 pdf.set_font('Arial', 'B', 12)
 pdf.cell(0, 10, 'Submitted By: Rohan Sanjeev Moholkar', 0, 1, 'C')
@@ -87,7 +87,7 @@ pdf.chapter_title("Abstract")
 pdf.chapter_body(
     "The rapid digitization of India's healthcare infrastructure has created a centralized target vulnerable "
     "to both classical cyberattacks and future quantum computing threats. This report details the work undertaken "
-    "in Phase 2 (PBL-2), focusing on Research & Modeling. We conducted a comparative analysis of Post-Quantum "
+    "in Phase 2 (PBL-3), focusing on Research & Modeling. We conducted a comparative analysis of Post-Quantum "
     "Cryptography (PQC) algorithms, simulated QKD photon loss to determine maximum secure transmission distances "
     "(approx 100km), and designed an AI-based anomaly detection framework using Isolation Forest algorithms. "
     "The results confirm the technical viability of a quantum-resilient health network for India."
@@ -127,7 +127,7 @@ pdf.add_image_centered("temp_ai.png", w=140)
 # 6. Conclusion
 pdf.chapter_title("4. Conclusion & Future Roadmap")
 pdf.chapter_body(
-    "PBL-2 has successfully validated the theoretical models for the proposed system. We have demonstrated that "
+    "PBL-3 has successfully validated the theoretical models for the proposed system. We have demonstrated that "
     "Lattice-based PQC and QKD are feasible for India's healthcare infrastructure. \n\n"
     "Future Work (PBL-3): The final phase will focus on the integration of these models into a cohesive prototype "
     "and the refinement of the blockchain consensus mechanism."

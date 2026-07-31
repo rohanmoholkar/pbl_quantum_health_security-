@@ -164,7 +164,7 @@ Time Defense) was defined and documented 71.
 National Quantum Fiber Grid 72and Mobile QKD Integration 73. 
 7.2 Timeline / Gantt chart for all phases (PBL-1, 2, 3) 
 Phase Tasks Duration 
-(Weeks) PBL-1 PBL-2 PBL-3 
+(Weeks) PBL-1 PBL-3 PBL-3 
 Phase 1: 
 Foundation & 
 Design (PBL-1) 
@@ -205,8 +205,8 @@ security paradigm. The proposed four-pillar framework leveraging Aadhaar, QKD,
 Blockchain, and AI, provides a robust, future-proof defense 74. This vision aims to create a 
 future where every citizen's health record is secure, private, and instantly accessible 75, 
 powered by India's own quantum technology76. 
-8.2 Tasks planned for PBL-2 (next phase research objectives) 
-The next phase, PBL-2, will focus on deepening the theoretical investigation and modeling 
+8.2 Tasks planned for PBL-3 (next phase research objectives) 
+The next phase, PBL-3, will focus on deepening the theoretical investigation and modeling 
 of the proposed framework, establishing a rigorous foundation for a quantum-resilient 
 national health infrastructure. The objectives are purely research-oriented: 
 • P-Q Cryptography Selection and Analysis: Conduct a comprehensive literature 
