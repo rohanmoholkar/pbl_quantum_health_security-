@@ -3,134 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantum-Secured Digital Health Identity</title>
+    <title>QuantumHealth — Quantum-Secured Digital Health Identity System</title>
+    <meta name="description" content="A multi-layered defense architecture integrating QKD, PQC, AI Intrusion Detection, and Blockchain for healthcare data security.">
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@400;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Dynamic Particle Background -->
-    <canvas id="particle-canvas"></canvas>
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
 
-    <!-- Glassmorphic Navbar -->
-    <nav class="glass-nav">
-        <div class="nav-container">
-            <h1 class="nav-logo">Quantum<span>Health</span></h1>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="logo">Q<span>Health</span></a>
             <ul class="nav-links">
-                <li><a href="#architecture">Architecture</a></li>
-                <li><a href="#simulations">Simulations</a></li>
-                <li><a href="#research">Research Paper</a></li>
+                <li><a href="#pillars">Architecture</a></li>
+                <li><a href="#demo">Live Demo</a></li>
+                <li><a href="#stats">Results</a></li>
             </ul>
+            <a href="#demo" class="nav-cta">Try AI Demo</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content reveal">
-            <div class="badge">PBL-3 Research Project</div>
-            <h2 class="hero-title">Securing the Future of<br><span class="gradient-text">Healthcare Data</span></h2>
-            <p class="hero-subtitle">A multi-layered defense architecture integrating Quantum Key Distribution, Post-Quantum Cryptography, AI Intrusion Detection, and Blockchain immutability.</p>
-            <div class="hero-cta">
-                <a href="#architecture" class="btn btn-primary">Explore Architecture</a>
-                <a href="ieee_paper_latex/main.pdf" class="btn btn-secondary" target="_blank">Read IEEE Paper</a>
+    <!-- Hero -->
+    <header class="hero">
+        <div class="hero-inner">
+            <span class="hero-badge">PBL-3 Research Project — IEEE Format</span>
+            <h1>Quantum-Secured<br><span class="glow-text">Healthcare Data</span></h1>
+            <p class="hero-desc">A four-pillar defense architecture combining Quantum Key Distribution, Post-Quantum Cryptography, Deep Learning Intrusion Detection, and Blockchain immutability to protect electronic health records against current and future quantum threats.</p>
+            <div class="hero-actions">
+                <a href="#demo" class="btn-glow">Launch AI Demo</a>
+                <a href="#pillars" class="btn-ghost">View Architecture ↓</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-pill"><strong>494,021</strong> Training Samples</div>
+                <div class="stat-pill"><strong>99.7%</strong> Detection Accuracy</div>
+                <div class="stat-pill"><strong>4</strong> Defense Layers</div>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- The 4 Pillars (Architecture) -->
-    <section id="architecture" class="architecture-section">
-        <h3 class="section-heading reveal">The Four Pillars of Security</h3>
-        <div class="pillar-grid">
-            
-            <!-- Pillar 1: QKD -->
-            <div class="pillar-card glass-card reveal">
-                <div class="icon-wrapper cyan-glow">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+    <!-- Four Pillars -->
+    <section id="pillars" class="section">
+        <h2 class="section-title fade-in">The Four Pillars of Security</h2>
+        <p class="section-subtitle fade-in">Each layer addresses a distinct attack vector — from quantum eavesdropping to insider data tampering.</p>
+        
+        <div class="pillars-grid">
+            <article class="pillar-card fade-in" data-accent="cyan">
+                <div class="pillar-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
                 </div>
-                <h4>Quantum Key Distribution</h4>
-                <p>Information-theoretic security over fiber optic networks using the BB84 protocol. Evaluated via the GLLP mathematical model.</p>
-                <div class="code-snippet">
+                <h3>Quantum Key Distribution</h3>
+                <p>Information-theoretic secure key exchange over fiber optics using the BB84 protocol, modeled with the GLLP equation.</p>
+                <div class="pillar-cmd">
                     <code>python simulations/qkd_model.py</code>
-                    <button class="copy-btn" onclick="copyCode('python simulations/qkd_model.py')">Copy</button>
+                    <button class="copy-btn" data-cmd="python simulations/qkd_model.py" aria-label="Copy command">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    </button>
                 </div>
-            </div>
+            </article>
 
-            <!-- Pillar 2: PQC -->
-            <div class="pillar-card glass-card reveal">
-                <div class="icon-wrapper purple-glow">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <article class="pillar-card fade-in" data-accent="purple">
+                <div class="pillar-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
                 </div>
-                <h4>Post-Quantum Cryptography</h4>
-                <p>NIST-standardized cryptographic algorithms (Kyber) ensuring off-chain data encryption against Shor's Algorithm attacks.</p>
-                <div class="code-snippet">
+                <h3>Post-Quantum Cryptography</h3>
+                <p>NIST-standardized CRYSTALS-Kyber lattice encryption ensuring data confidentiality even against Shor's algorithm.</p>
+                <div class="pillar-cmd">
                     <code>python simulations/pqc_compare.py</code>
-                    <button class="copy-btn" onclick="copyCode('python simulations/pqc_compare.py')">Copy</button>
+                    <button class="copy-btn" data-cmd="python simulations/pqc_compare.py" aria-label="Copy command">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    </button>
                 </div>
-            </div>
+            </article>
 
-            <!-- Pillar 3: AI -->
-            <div class="pillar-card glass-card reveal">
-                <div class="icon-wrapper green-glow">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <article class="pillar-card fade-in" data-accent="green">
+                <div class="pillar-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
                 </div>
-                <h4>AI Intrusion Detection</h4>
-                <p>Comparative deep learning study (MLP vs Random Forest) trained on half a million network logs to detect zero-day healthcare API attacks.</p>
-                <div class="code-snippet">
+                <h3>AI Intrusion Detection</h3>
+                <p>Comparative study: Random Forest vs MLP Neural Network, trained on 494k authentic KDD Cup network telemetry samples.</p>
+                <div class="pillar-cmd">
                     <code>python simulations/advanced_ai_intrusion_detection.py</code>
-                    <button class="copy-btn" onclick="copyCode('python simulations/advanced_ai_intrusion_detection.py')">Copy</button>
+                    <button class="copy-btn" data-cmd="python simulations/advanced_ai_intrusion_detection.py" aria-label="Copy command">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    </button>
                 </div>
-            </div>
+            </article>
 
-            <!-- Pillar 4: Blockchain -->
-            <div class="pillar-card glass-card reveal">
-                <div class="icon-wrapper orange-glow">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            <article class="pillar-card fade-in" data-accent="amber">
+                <div class="pillar-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
                 </div>
-                <h4>Blockchain Data Integrity</h4>
-                <p>Off-chain IPFS storage with on-chain Ethereum Smart Contracts implementing Role-Based Access Control and immutable audit logs.</p>
-                <div class="code-snippet">
+                <h3>Blockchain Data Integrity</h3>
+                <p>Solidity smart contracts with RBAC and immutable audit logs. Off-chain IPFS storage with on-chain hash verification.</p>
+                <div class="pillar-cmd">
                     <code>python simulations/blockchain_ehr_demo.py</code>
-                    <button class="copy-btn" onclick="copyCode('python simulations/blockchain_ehr_demo.py')">Copy</button>
+                    <button class="copy-btn" data-cmd="python simulations/blockchain_ehr_demo.py" aria-label="Copy command">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    </button>
                 </div>
-            </div>
-
+            </article>
         </div>
     </section>
 
-    <!-- Research Section (Upgraded to Live Dashboard) -->
-    <section id="research" class="research-section glass-card reveal">
-        <h3 class="section-heading">Live Full-Stack AI Demo</h3>
-        <div class="research-content">
-            <div class="research-text">
-                <p>This dashboard is connected to our Python Flask backend. Clicking the button below samples an <strong>authentic network request</strong> from the KDD Cup 99 testing dataset and passes it through our highly-trained Random Forest model in real-time!</p>
-                <button id="run-ai-btn" class="btn btn-primary" style="margin-top: 1rem;">Run Live AI Analysis</button>
-                <div style="margin-top: 2rem;">
-                    <a href="ieee_paper_latex/main.pdf" class="btn btn-outline" target="_blank">View IEEE Validation Paper</a>
+    <!-- Live AI Demo -->
+    <section id="demo" class="section demo-section">
+        <h2 class="section-title fade-in">Live AI Intrusion Detection</h2>
+        <p class="section-subtitle fade-in">Authentic inference on real KDD Cup 99 network telemetry — no simulated data.</p>
+
+        <div class="demo-layout fade-in">
+            <!-- Left: Controls + Stats -->
+            <div class="demo-sidebar">
+                <div class="demo-control-card">
+                    <h4>Defense Engine</h4>
+                    <p class="demo-desc">Each click samples a real network packet from the testing dataset and runs it through the trained Random Forest model.</p>
+                    <button id="analyze-btn" class="btn-glow btn-full">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                        Analyze Packet
+                    </button>
+                    <button id="auto-btn" class="btn-ghost btn-full" style="margin-top:0.5rem;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
+                        Auto-Stream (5 packets)
+                    </button>
+                </div>
+                <div class="demo-stats-card">
+                    <h4>Session Statistics</h4>
+                    <div class="stat-row"><span>Packets Analyzed</span><span id="stat-total" class="stat-value">0</span></div>
+                    <div class="stat-row"><span>Attacks Blocked</span><span id="stat-attacks" class="stat-value red">0</span></div>
+                    <div class="stat-row"><span>Safe Traffic</span><span id="stat-safe" class="stat-value green">0</span></div>
+                    <div class="stat-row"><span>Avg Confidence</span><span id="stat-confidence" class="stat-value">—</span></div>
+                    <div class="accuracy-bar">
+                        <div class="accuracy-fill" id="accuracy-fill" style="width:0%"></div>
+                    </div>
+                    <p class="accuracy-label"><span id="accuracy-pct">0</span>% Model Accuracy This Session</p>
                 </div>
             </div>
-            
-            <div class="terminal-window" id="ai-dashboard">
-                <div class="terminal-header">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                    <span style="color: #94a3b8; font-family: 'Fira Code', monospace; margin-left: 10px; font-size: 0.8rem;">Backend: Active</span>
+
+            <!-- Right: Live Terminal -->
+            <div class="demo-terminal">
+                <div class="term-chrome">
+                    <div class="term-dots">
+                        <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
+                    </div>
+                    <span class="term-title">quantumhealth — ai_defense — python3</span>
+                    <div class="term-status" id="term-status">
+                        <span class="status-dot online"></span> Connected
+                    </div>
                 </div>
-                <div class="terminal-body" id="ai-logs">
-                    <p style="color: #06b6d4;">[SYSTEM] Secure Connection Established to Flask Backend.</p>
-                    <p style="color: #06b6d4;">[SYSTEM] Random Forest Intrusion Detection Model Loaded.</p>
-                    <p style="color: #94a3b8; margin-top: 10px;">Waiting for traffic... Click "Run Live AI Analysis".</p>
+                <div class="term-body" id="term-body">
+                    <div class="term-line sys">[SYS] Random Forest Intrusion Detection Engine v2.0</div>
+                    <div class="term-line sys">[SYS] Model loaded from models/rf_intrusion_model.pkl</div>
+                    <div class="term-line sys">[SYS] KDD Cup 99 dataset mounted (494,021 samples)</div>
+                    <div class="term-line muted">Awaiting incoming traffic…</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="glass-footer">
-        <p>&copy; 2026 PBL-3 Project | Quantum-Secured Digital Health Identity System</p>
+    <!-- Results / Stats -->
+    <section id="stats" class="section">
+        <h2 class="section-title fade-in">Empirical Results</h2>
+        <p class="section-subtitle fade-in">Validated through rigorous machine learning methodology and published in IEEE format.</p>
+        <div class="results-grid fade-in">
+            <div class="result-card">
+                <span class="result-number">494,021</span>
+                <span class="result-label">Network Samples (KDD Cup 99)</span>
+            </div>
+            <div class="result-card">
+                <span class="result-number">99.7%</span>
+                <span class="result-label">Random Forest AUC Score</span>
+            </div>
+            <div class="result-card">
+                <span class="result-number">3-Fold</span>
+                <span class="result-label">Cross-Validation</span>
+            </div>
+            <div class="result-card">
+                <span class="result-number">STRIDE</span>
+                <span class="result-label">Threat Model Analysis</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span class="logo">Q<span>Health</span></span>
+            <p>PBL-3 Research Project · Quantum-Secured Digital Health Identity System · 2026</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>

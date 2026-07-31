@@ -1,218 +1,202 @@
-// --- Utility Functions ---
+// ============================================================
+// QuantumHealth — Full-Stack Frontend Logic
+// ============================================================
 
-function copyCode(text) {
-    navigator.clipboard.writeText(text).then(() => {
-        // Find the button that was clicked and temporarily change its text
-        const btns = document.querySelectorAll('.copy-btn');
-        btns.forEach(btn => {
-            if (btn.getAttribute('onclick').includes(text)) {
-                const originalText = btn.innerText;
-                btn.innerText = 'Copied!';
-                btn.style.background = 'rgba(16, 185, 129, 0.5)'; // Green flash
-                
-                setTimeout(() => {
-                    btn.innerText = originalText;
-                    btn.style.background = '';
-                }, 2000);
-            }
+(function () {
+    'use strict';
+
+    // ---- Scroll-triggered fade-in (IntersectionObserver) ----
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((e) => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    observer.unobserve(e.target); // animate only once
+                }
+            });
+        },
+        { threshold: 0.12 }
+    );
+
+    document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+
+    // ---- Copy-to-clipboard buttons ----
+    document.querySelectorAll('.copy-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const cmd = btn.dataset.cmd;
+            navigator.clipboard.writeText(cmd).then(() => {
+                btn.classList.add('copied');
+                setTimeout(() => btn.classList.remove('copied'), 1500);
+            });
         });
     });
-}
 
+    // ---- Canvas particle background ----
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, particles;
 
-// --- Scroll Reveal Animations (Intersection Observer) ---
+    function resize() {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
 
-function reveal() {
-    var reveals = document.querySelectorAll(".reveal");
-    for (var i = 0; i < reveals.length; i++) {
-        var windowHeight = window.innerHeight;
-        var elementTop = reveals[i].getBoundingClientRect().top;
-        var elementVisible = 100;
-        if (elementTop < windowHeight - elementVisible) {
-            reveals[i].classList.add("active");
+    class Dot {
+        constructor() {
+            this.x = Math.random() * W;
+            this.y = Math.random() * H;
+            this.vx = (Math.random() - 0.5) * 0.4;
+            this.vy = (Math.random() - 0.5) * 0.4;
+            this.r = Math.random() * 1.8 + 0.6;
+            this.color = ['#22d3ee', '#a78bfa', '#475569'][Math.floor(Math.random() * 3)];
+        }
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+            if (this.x < 0 || this.x > W) this.vx *= -1;
+            if (this.y < 0 || this.y > H) this.vy *= -1;
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+            ctx.fillStyle = this.color;
+            ctx.fill();
         }
     }
-}
 
-window.addEventListener("scroll", reveal);
-// Trigger once on load
-reveal();
-
-
-// --- Quantum Particle Background (Canvas) ---
-
-const canvas = document.getElementById('particle-canvas');
-const ctx = canvas.getContext('2d');
-
-let particlesArray;
-let w, h;
-
-function initCanvas() {
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight;
-}
-
-window.addEventListener('resize', initCanvas);
-initCanvas();
-
-class Particle {
-    constructor(x, y, directionX, directionY, size, color) {
-        this.x = x;
-        this.y = y;
-        this.directionX = directionX;
-        this.directionY = directionY;
-        this.size = size;
-        this.color = color;
+    function initDots() {
+        const count = Math.min(Math.floor((W * H) / 18000), 120);
+        particles = Array.from({ length: count }, () => new Dot());
     }
 
-    draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-        ctx.fillStyle = this.color;
-        ctx.fill();
-    }
-
-    update() {
-        if (this.x > w || this.x < 0) {
-            this.directionX = -this.directionX;
-        }
-        if (this.y > h || this.y < 0) {
-            this.directionY = -this.directionY;
-        }
-        
-        // Very slow movement to represent quantum states
-        this.x += this.directionX * 0.5;
-        this.y += this.directionY * 0.5;
-        
-        this.draw();
-    }
-}
-
-function initParticles() {
-    particlesArray = [];
-    const numberOfParticles = (w * h) / 15000;
-    // Cyberpunk/Quantum color palette
-    const colors = ['#06b6d4', '#a855f7', '#334155']; 
-
-    for (let i = 0; i < numberOfParticles; i++) {
-        const size = (Math.random() * 2) + 1;
-        const x = Math.random() * (innerWidth - size * 2) + size * 2;
-        const y = Math.random() * (innerHeight - size * 2) + size * 2;
-        const directionX = (Math.random() * 2) - 1;
-        const directionY = (Math.random() * 2) - 1;
-        const color = colors[Math.floor(Math.random() * colors.length)];
-
-        particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
-    }
-}
-
-function connectParticles() {
-    let opacityValue = 1;
-    for (let a = 0; a < particlesArray.length; a++) {
-        for (let b = a; b < particlesArray.length; b++) {
-            const dx = particlesArray[a].x - particlesArray[b].x;
-            const dy = particlesArray[a].y - particlesArray[b].y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            // Connect particles that are close
-            if (distance < 120) {
-                opacityValue = 1 - (distance / 120);
-                // Draw line
-                ctx.strokeStyle = `rgba(148, 163, 184, ${opacityValue * 0.2})`;
-                ctx.lineWidth = 1;
-                ctx.beginPath();
-                ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-                ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-                ctx.stroke();
+    function drawLines() {
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 130) {
+                    ctx.strokeStyle = `rgba(148,163,184,${(1 - dist / 130) * 0.15})`;
+                    ctx.lineWidth = 0.8;
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                }
             }
         }
     }
-}
 
-function animateParticles() {
-    requestAnimationFrame(animateParticles);
-    ctx.clearRect(0, 0, w, h);
-
-    for (let i = 0; i < particlesArray.length; i++) {
-        particlesArray[i].update();
+    function tick() {
+        requestAnimationFrame(tick);
+        ctx.clearRect(0, 0, W, H);
+        particles.forEach((p) => { p.update(); p.draw(); });
+        drawLines();
     }
-    connectParticles();
-}
 
-// Start Background Animation
-initParticles();
-animateParticles();
+    initDots();
+    tick();
 
+    // ---- AI Demo Engine ----
+    const termBody = document.getElementById('term-body');
+    const analyzeBtn = document.getElementById('analyze-btn');
+    const autoBtn = document.getElementById('auto-btn');
+    const statTotal = document.getElementById('stat-total');
+    const statAttacks = document.getElementById('stat-attacks');
+    const statSafe = document.getElementById('stat-safe');
+    const statConfidence = document.getElementById('stat-confidence');
+    const accuracyFill = document.getElementById('accuracy-fill');
+    const accuracyPct = document.getElementById('accuracy-pct');
 
-// --- Live Full-Stack AI Demo ---
-const aiBtn = document.getElementById('run-ai-btn');
-if (aiBtn) {
-    aiBtn.addEventListener('click', async () => {
-        const logsDiv = document.getElementById('ai-logs');
-        
-        // Show loading state
-        const loadingMsg = document.createElement('p');
-        loadingMsg.style.color = '#e2e8f0';
-        loadingMsg.innerHTML = '<span class="prompt">user@macbook:~$</span> <i>Capturing live network packet...</i>';
-        logsDiv.appendChild(loadingMsg);
-        logsDiv.scrollTop = logsDiv.scrollHeight;
-        
-        // Disable button to prevent spam
-        aiBtn.disabled = true;
-        aiBtn.innerText = 'Analyzing...';
-        
+    let sessionTotal = 0;
+    let sessionAttacks = 0;
+    let sessionSafe = 0;
+    let sessionCorrect = 0;
+    let confidenceSum = 0;
+
+    function addLine(text, cls) {
+        const div = document.createElement('div');
+        div.className = 'term-line ' + (cls || '');
+        div.textContent = text;
+        termBody.appendChild(div);
+        termBody.scrollTop = termBody.scrollHeight;
+    }
+
+    function updateStats(data) {
+        sessionTotal++;
+        if (data.is_attack_prediction) sessionAttacks++;
+        else sessionSafe++;
+        if (data.is_attack_prediction === data.is_actual_attack) sessionCorrect++;
+        confidenceSum += data.confidence;
+
+        statTotal.textContent = sessionTotal;
+        statAttacks.textContent = sessionAttacks;
+        statSafe.textContent = sessionSafe;
+        statConfidence.textContent = (confidenceSum / sessionTotal).toFixed(1) + '%';
+
+        const accPct = Math.round((sessionCorrect / sessionTotal) * 100);
+        accuracyFill.style.width = accPct + '%';
+        accuracyPct.textContent = accPct;
+    }
+
+    async function analyzeOne() {
+        addLine('> Capturing TCP packet on Health API port 443…', 'muted');
+
         try {
-            // Wait a tiny bit just for cinematic effect, then fetch
-            await new Promise(r => setTimeout(r, 600));
-            const response = await fetch('/api/analyze_traffic');
-            
-            if (!response.ok) {
-                throw new Error("Backend server not responding");
-            }
-            
-            const data = await response.json();
-            
-            // Remove loading message
-            logsDiv.removeChild(loadingMsg);
-            
-            // Log Telemetry
-            const teleMsg = document.createElement('p');
-            teleMsg.style.color = '#94a3b8';
-            teleMsg.innerHTML = `> Extracted Features: Duration=${data.telemetry.Duration}ms, SrcBytes=${data.telemetry.Src_Bytes}, DstBytes=${data.telemetry.Dst_Bytes}`;
-            logsDiv.appendChild(teleMsg);
-            
-            // Wait slightly for AI to "think"
-            await new Promise(r => setTimeout(r, 400));
-            
-            // Display Result
-            const resultMsg = document.createElement('p');
+            const res = await fetch('/api/analyze_traffic');
+            if (!res.ok) throw new Error('Backend offline');
+            const data = await res.json();
+
+            // Show telemetry
+            addLine(
+                `  Telemetry → Duration: ${data.telemetry.Duration}ms  SrcBytes: ${data.telemetry.Src_Bytes}  DstBytes: ${data.telemetry.Dst_Bytes}  FailedLogins: ${data.telemetry.Failed_Logins}`,
+                'data'
+            );
+
+            // Show ground truth vs prediction
+            const truthTag = data.is_actual_attack ? 'ATTACK' : 'NORMAL';
+
             if (data.is_attack_prediction) {
-                resultMsg.style.color = '#ef4444'; // Red
-                resultMsg.style.fontWeight = 'bold';
-                resultMsg.innerHTML = `[CRITICAL ALERT] Malicious Intrusion Detected! (Confidence: ${data.confidence.toFixed(1)}%) <br> <span style="color:#f59e0b">>> Action: Connection dropped.</span>`;
+                addLine(
+                    `  ✗ [BLOCKED] Intrusion Detected — Confidence ${data.confidence.toFixed(1)}%  (Ground Truth: ${data.true_label})`,
+                    'danger'
+                );
+                addLine('    → Connection dropped. Source IP blacklisted.', 'warn');
             } else {
-                resultMsg.style.color = '#10b981'; // Green
-                resultMsg.style.fontWeight = 'bold';
-                resultMsg.innerHTML = `[SAFE] Normal Health API Request. (Confidence: ${data.confidence.toFixed(1)}%) <br> >> Action: Traffic allowed.`;
+                addLine(
+                    `  ✓ [PASSED]  Normal Traffic — Confidence ${data.confidence.toFixed(1)}%  (Ground Truth: ${data.true_label})`,
+                    'safe'
+                );
             }
-            logsDiv.appendChild(resultMsg);
-            
-            // Separator
-            const sep = document.createElement('p');
-            sep.style.color = '#334155';
-            sep.innerText = '----------------------------------------';
-            logsDiv.appendChild(sep);
-            
-        } catch (error) {
-            logsDiv.removeChild(loadingMsg);
-            const errMsg = document.createElement('p');
-            errMsg.style.color = '#ef4444';
-            errMsg.innerText = '[ERROR] Failed to connect to Python Backend. Is Flask running on port 5001?';
-            logsDiv.appendChild(errMsg);
-        } finally {
-            logsDiv.scrollTop = logsDiv.scrollHeight;
-            aiBtn.disabled = false;
-            aiBtn.innerText = 'Run Live AI Analysis';
+
+            addLine('─'.repeat(60), 'sep');
+            updateStats(data);
+        } catch (err) {
+            addLine('[ERROR] Could not reach Flask backend. Is app.py running on port 5001?', 'danger');
         }
+    }
+
+    // Single analysis
+    analyzeBtn.addEventListener('click', async () => {
+        analyzeBtn.disabled = true;
+        await analyzeOne();
+        analyzeBtn.disabled = false;
     });
-}
+
+    // Auto-stream
+    autoBtn.addEventListener('click', async () => {
+        analyzeBtn.disabled = true;
+        autoBtn.disabled = true;
+        addLine('[AUTO] Streaming 5 consecutive packets…', 'sys');
+        for (let i = 0; i < 5; i++) {
+            await new Promise((r) => setTimeout(r, 700));
+            await analyzeOne();
+        }
+        addLine('[AUTO] Stream complete.', 'sys');
+        analyzeBtn.disabled = false;
+        autoBtn.disabled = false;
+    });
+
+})();
