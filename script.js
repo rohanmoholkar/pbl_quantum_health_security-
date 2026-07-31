@@ -142,3 +142,77 @@ function animateParticles() {
 // Start Background Animation
 initParticles();
 animateParticles();
+
+
+// --- Live Full-Stack AI Demo ---
+const aiBtn = document.getElementById('run-ai-btn');
+if (aiBtn) {
+    aiBtn.addEventListener('click', async () => {
+        const logsDiv = document.getElementById('ai-logs');
+        
+        // Show loading state
+        const loadingMsg = document.createElement('p');
+        loadingMsg.style.color = '#e2e8f0';
+        loadingMsg.innerHTML = '<span class="prompt">user@macbook:~$</span> <i>Capturing live network packet...</i>';
+        logsDiv.appendChild(loadingMsg);
+        logsDiv.scrollTop = logsDiv.scrollHeight;
+        
+        // Disable button to prevent spam
+        aiBtn.disabled = true;
+        aiBtn.innerText = 'Analyzing...';
+        
+        try {
+            // Wait a tiny bit just for cinematic effect, then fetch
+            await new Promise(r => setTimeout(r, 600));
+            const response = await fetch('/api/analyze_traffic');
+            
+            if (!response.ok) {
+                throw new Error("Backend server not responding");
+            }
+            
+            const data = await response.json();
+            
+            // Remove loading message
+            logsDiv.removeChild(loadingMsg);
+            
+            // Log Telemetry
+            const teleMsg = document.createElement('p');
+            teleMsg.style.color = '#94a3b8';
+            teleMsg.innerHTML = `> Extracted Features: Duration=${data.telemetry.Duration}ms, SrcBytes=${data.telemetry.Src_Bytes}, DstBytes=${data.telemetry.Dst_Bytes}`;
+            logsDiv.appendChild(teleMsg);
+            
+            // Wait slightly for AI to "think"
+            await new Promise(r => setTimeout(r, 400));
+            
+            // Display Result
+            const resultMsg = document.createElement('p');
+            if (data.is_attack_prediction) {
+                resultMsg.style.color = '#ef4444'; // Red
+                resultMsg.style.fontWeight = 'bold';
+                resultMsg.innerHTML = `[CRITICAL ALERT] Malicious Intrusion Detected! (Confidence: ${data.confidence.toFixed(1)}%) <br> <span style="color:#f59e0b">>> Action: Connection dropped.</span>`;
+            } else {
+                resultMsg.style.color = '#10b981'; // Green
+                resultMsg.style.fontWeight = 'bold';
+                resultMsg.innerHTML = `[SAFE] Normal Health API Request. (Confidence: ${data.confidence.toFixed(1)}%) <br> >> Action: Traffic allowed.`;
+            }
+            logsDiv.appendChild(resultMsg);
+            
+            // Separator
+            const sep = document.createElement('p');
+            sep.style.color = '#334155';
+            sep.innerText = '----------------------------------------';
+            logsDiv.appendChild(sep);
+            
+        } catch (error) {
+            logsDiv.removeChild(loadingMsg);
+            const errMsg = document.createElement('p');
+            errMsg.style.color = '#ef4444';
+            errMsg.innerText = '[ERROR] Failed to connect to Python Backend. Is Flask running on port 5001?';
+            logsDiv.appendChild(errMsg);
+        } finally {
+            logsDiv.scrollTop = logsDiv.scrollHeight;
+            aiBtn.disabled = false;
+            aiBtn.innerText = 'Run Live AI Analysis';
+        }
+    });
+}

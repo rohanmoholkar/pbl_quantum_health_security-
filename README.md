@@ -63,6 +63,20 @@ python simulations/blockchain_ehr_demo.py
 **Output**: Terminal simulation of a patient registering, a doctor updating an EHR, and an attempted tampering attack failing the cryptographic integrity check.
 **Contract Code**: The actual Solidity logic is located in `blockchain/HealthIdentity.sol`.
 
+## Full-Stack Live Web Demo
+We have built a gorgeous, interactive Web UI that connects directly to the Python AI backend to stream authentic telemetry data and provide live Intrusion Detection.
+
+1. Install the backend requirements (if not already installed):
+   ```bash
+   python3 -m pip install flask scikit-learn
+   ```
+2. Start the AI Server:
+   ```bash
+   python3 app.py
+   ```
+3. Open your browser to `http://localhost:5001`.
+4. Scroll down to the **Live Full-Stack AI Demo** section and click the button to sample authentic network requests from the KDD Cup testing dataset in real-time!
+
 ## Report Integration
 
 The academic drafting uses the IEEE LaTeX template, located in `ieee_paper_latex/`. 

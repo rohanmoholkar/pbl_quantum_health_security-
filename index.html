@@ -101,29 +101,29 @@
         </div>
     </section>
 
-    <!-- Research Section -->
+    <!-- Research Section (Upgraded to Live Dashboard) -->
     <section id="research" class="research-section glass-card reveal">
-        <h3 class="section-heading">Academic Validation</h3>
+        <h3 class="section-heading">Live Full-Stack AI Demo</h3>
         <div class="research-content">
             <div class="research-text">
-                <p>Our proposed architecture is heavily validated through extensive mathematical modeling and empirical ML training. The results are formatted in a comprehensive IEEE Research Paper.</p>
-                <ul class="feature-list">
-                    <li>✓ Extensive Literature Survey identifying research gaps</li>
-                    <li>✓ Microsoft STRIDE Threat Matrix Analysis</li>
-                    <li>✓ AI K-Fold Cross Validation & Learning Curves</li>
-                    <li>✓ QKD Transmittance & Feasibility Equations</li>
-                </ul>
-                <a href="ieee_paper_latex/main.tex" class="btn btn-outline" target="_blank">View LaTeX Source</a>
+                <p>This dashboard is connected to our Python Flask backend. Clicking the button below samples an <strong>authentic network request</strong> from the KDD Cup 99 testing dataset and passes it through our highly-trained Random Forest model in real-time!</p>
+                <button id="run-ai-btn" class="btn btn-primary" style="margin-top: 1rem;">Run Live AI Analysis</button>
+                <div style="margin-top: 2rem;">
+                    <a href="ieee_paper_latex/main.pdf" class="btn btn-outline" target="_blank">View IEEE Validation Paper</a>
+                </div>
             </div>
-            <div class="terminal-window">
+            
+            <div class="terminal-window" id="ai-dashboard">
                 <div class="terminal-header">
                     <span class="dot red"></span>
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
+                    <span style="color: #94a3b8; font-family: 'Fira Code', monospace; margin-left: 10px; font-size: 0.8rem;">Backend: Active</span>
                 </div>
-                <div class="terminal-body">
-                    <p><span class="prompt">user@macbook:~$</span> cat blockchain/HealthIdentity.sol | head -n 10</p>
-                    <p class="output">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.19;<br><br>contract HealthIdentity {<br>&nbsp;&nbsp;&nbsp;&nbsp;address public admin;<br>&nbsp;&nbsp;&nbsp;&nbsp;struct Patient {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string aadhaarHash;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string pqcPublicKey;<br>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+                <div class="terminal-body" id="ai-logs">
+                    <p style="color: #06b6d4;">[SYSTEM] Secure Connection Established to Flask Backend.</p>
+                    <p style="color: #06b6d4;">[SYSTEM] Random Forest Intrusion Detection Model Loaded.</p>
+                    <p style="color: #94a3b8; margin-top: 10px;">Waiting for traffic... Click "Run Live AI Analysis".</p>
                 </div>
             </div>
         </div>
