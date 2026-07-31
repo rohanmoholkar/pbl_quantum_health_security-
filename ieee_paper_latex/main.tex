@@ -86,7 +86,7 @@ We benchmarked the performance of Post-Quantum Cryptography algorithms (Kyber an
 \end{figure}
 
 \subsection{AI Defense Outcomes}
-Both the Random Forest and MLP Neural Network architectures achieved exceptional empirical accuracy on the CICIDS2017 test dataset. The Random Forest ensemble achieved 99.89\% accuracy with an AUC of 0.9999, while the MLP achieved 99.44\% accuracy with an AUC of 0.9997. Figure \ref{fig:ai_learning} illustrates the learning curve analysis, demonstrating that cross-validation scores converge optimally as the training sample size increases, confirming that neither model is overfitting. Furthermore, the comparative Receiver Operating Characteristic (ROC) curve (Figure \ref{fig:ai_roc_comp}) shows that the Ensemble approach slightly outperforms the Deep Learning approach in maintaining a near-perfect Area Under the Curve.
+Both the Random Forest and MLP Neural Network architectures achieved exceptional empirical accuracy on the CICIDS2017 test dataset. The Random Forest ensemble achieved 99.89\% accuracy with an AUC of 0.9999, while the MLP achieved 99.44\% accuracy with an AUC of 0.9997. Figure \ref{fig:ai_learning} illustrates the learning curve analysis, demonstrating that cross-validation scores converge optimally as the training sample size increases, confirming that neither model is overfitting. Furthermore, the comparative Receiver Operating Characteristic (ROC) curve (Figure \ref{fig:ai_roc_comp}) shows that the Ensemble approach slightly outperforms the Deep Learning approach in maintaining a near-perfect Area Under the Curve. Figure \ref{fig:ai_attack_dist} highlights the distribution of the 14 attack types alongside benign traffic within the test dataset. Crucially, the multi-class confusion matrix (Figure \ref{fig:ai_conf_matrix}) confirms the Random Forest's robust ability to precisely categorize specific modern attack vectors, such as DDoS and Web Attacks, rather than merely performing binary classification.
 
 \begin{figure}[htbp]
 \centerline{\includegraphics[width=\linewidth]{figures/cicids_learning_curve.png}}
@@ -98,6 +98,18 @@ Both the Random Forest and MLP Neural Network architectures achieved exceptional
 \centerline{\includegraphics[width=\linewidth]{figures/cicids_roc_comparison.png}}
 \caption{Comparative ROC Curve on CICIDS2017: Deep Learning vs Ensemble.}
 \label{fig:ai_roc_comp}
+\end{figure}
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=\linewidth]{figures/cicids_attack_distribution.png}}
+\caption{Distribution of the 14 modern attack types and benign traffic within the CICIDS2017 dataset.}
+\label{fig:ai_attack_dist}
+\end{figure}
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=\linewidth]{figures/cicids_confusion_matrix.png}}
+\caption{Multi-Class Confusion Matrix for the Random Forest on CICIDS2017, demonstrating accurate classification across 15 distinct traffic classes.}
+\label{fig:ai_conf_matrix}
 \end{figure}
 
 \section{Security Analysis (STRIDE Model)}
